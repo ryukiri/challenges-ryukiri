@@ -1,6 +1,6 @@
 # Austin
 
-![alt text](https://github.com/info343a-au17/challenges-ryukiri/IMG_0037.jpg "HMB")
+![alt text](https://github.com/info343a-au17/challenges-ryukiri/blob/challenge1/challenge1/IMG_0037.jpg "HMB")
 
 I'm looking forward to learning more about Web Development. I have never used any web development tools before and I am really excited to learn how to use them.
 

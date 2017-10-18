@@ -42,6 +42,7 @@ Create a new file named `index.html` in the `challenge2` directory, and add the 
 * An element that tells programs reading this page that the text is encoded in the `UTF-8` encoding scheme.
 * An element in the head section that sets this page's title to the name of your chosen character.
 * The character's name, encoded as a top-level heading in the body section.
+* A description of the character encoded as a normal paragraph. Within that description, mention what book/story/comic/series/film the character is from, and make the title of that work be a hyperlink to another existing web page that provides more information about the work.
 * A picture of the character, with appropriate alternate text. This image should be saved into the `challenge2/img` folder. If the filename of your image is long, please shorten it to just a few words. Remove any spaces in the filename, or replace them with dashes or underscores (e.g. `lukeskywalker.jpg`, `luke-skywalker.jpg`, or `luke_skywalker.jpg`).
 
 ### 4. Add a style.css file

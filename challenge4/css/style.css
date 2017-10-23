@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+}
+
+html {
+    overflow: hidden;
+}
+
+h1 {
+    font-family: 'Roboto Slab', serif;
+    color: white;
+    font-size: 60px;
+    font-weight: 900;
+    position:absolute;
+    padding-right: 50px;
+    bottom:0;
+    right:0;
+    margin-bottom: 40px;
+}
+
+#myCarousel .active > img {
+    transform:scale(1.5);
+    -webkit-transform: scale(1.5);
+    -webkit-transition: -webkit-transform 10s ease-out;
+    -moz-transition: -moz-transform 10s ease-out;
+    transition: transform 10s ease-out;
+   }
+   
+
+.slide {
+    float: left;
+    height: 100vh; /* alternative to the height: 100% rules above */
+    width: 25%;
+    position: relative;
+}
+
+.slides {
+    width: 400%;
+    left: 0px;
+    position: relative;
+    transition: all 0.5s ease-out;
+}
+
+.slide-0 {
+    background-image: url("../img/california.jpg");
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.slide-1 {
+    background-image: url("../img/colorado.jpg");
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.slide-2 {
+    background-image: url("../img/fresno.jpg");
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.slide-3 {
+    background-image: url("../img/osu.jpg");
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.logo {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    opacity: 0.5;
+}
+
+.arrow:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.dots {
+    float: left;
+    position: fixed; /* or absolute */
+    top: 95%;
+    left: 45%;
+    font-size: 2em;
+    z-index: 5;
+    color: white;
+}
+
+.dot {
+    opacity: 0.5;
+}
+
+.dot:hover {
+    opacity: 1;
+    cursor: pointer;
+    z-index: 6;
+}
+
+.dots .active {
+    opacity: 1;
+}
+
+#left {
+    left: 15px;
+    font-size: 3em;
+    color: gray;
+}
+
+#right {
+    right: 15px;
+    font-size: 3em;
+    color: gray;
+}
+
+/*Mobile*/
+@media (max-width: 768px) {
+    h1 {
+        float: right;
+        font-size: 24px;
+    }
+
+    .logo {
+        zoom: 50%;
+    }
+
+    .dots {
+        font-size: 1em;
+    }
+}
+

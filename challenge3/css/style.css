@@ -1,0 +1,262 @@
+body {
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-weight: 100;
+    padding-top: 150px;
+}
+
+p {
+    line-height: 1.43;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.header {
+    height: 400px;
+    background-image: url("../img/header.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.header-content {
+    width: 50%;
+}
+
+.header-content a {
+    background-color: #814236;
+    color: white;
+    border-color: #391D18;
+    padding: 10px;
+}
+
+.cart-link-mobile {
+    display: none;
+}
+
+.small-caps {
+    font-variant: small-caps;
+}
+
+.center {
+    text-align: center;
+}
+
+.super {
+    vertical-align: super;
+}
+
+
+/*Features Section*/
+.features {
+    background-color: #F8F8F8;
+    padding: 15px 0px;
+}
+
+.feature {
+    border: 1px solid #DFDFDF;
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    height: 300px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.feature svg {
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+    fill: #814236;
+}
+
+
+/*Useful Section*/
+.useful {
+    background-color: #EBEBEB;
+    padding: 15px 0px;
+}
+
+.usefuls {
+    height: 150px;
+    text-align: left;
+}
+
+.note {
+    background-image: url("../img/note-taking.jpg");
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+}
+
+.art {
+    background-image: url("../img/art.jpg");
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+}
+
+.draft {
+    background-image: url("../img/drafting.jpg");
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+}
+
+.color {
+    background-image: url("../img/coloring.jpg");
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+}
+
+/*Testimonials Section*/
+.testimonials {
+    background-color: #F8F8F8;
+    height: 300px;
+    padding-top: 15px;
+}
+
+.testimonials p {
+    padding-left: 100px;
+}
+
+.dev_title {
+    padding-left: 100px;
+}
+
+.smaller {
+    font-size: 80%;
+    color: #999999;
+    display: inline
+}
+
+.round {
+    border-radius: 50%;
+    float: left;
+}
+
+/*Footer*/
+.footer {
+    height: 250px;
+    background-color: #391D18;
+    color: #EEEEEE;
+}
+
+.footer a {
+    color: #AAAAAA;
+    text-decoration: none;
+}
+
+.footer_elements {
+    padding-top: 40px;
+    float: left;
+}
+
+.footer_icons {
+    float: right;
+    padding-top: 40px;
+    padding-left: 15px;
+}
+
+.attribution {
+    padding-top: 100px;
+}
+
+/*Tablet screens*/
+@media (max-width: 767px) {
+    .feature {
+        text-align: left;
+    }
+
+    .feature svg {
+        float: left;
+
+    }
+
+    .feature {
+        height: auto;
+    }
+
+    .feature p {
+        padding-left: 60px;
+    }
+
+    .feature h3 {
+        padding-left: 60px;
+    }
+
+    .usefuls p {
+        padding-left: 0px;
+    }
+
+    .testimonials {
+        height: auto;
+    }
+}
+
+/*Mobile screens*/
+@media (max-width: 992px) {
+    .header {
+        background: #391D18; /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(#391D18, #814236); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#391D18, #814236); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#391D18, #814236); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom,#391D18, #814236); /* Standard syntax */
+        height: auto;
+        padding: 15px;
+    }
+
+    .header-content {
+        color: white;
+        width: auto;
+    }
+
+    h1 {
+        padding-top: 0px;
+    }
+
+    .cart-link {
+        display: none;
+    }
+
+    .cart-link-mobile {
+        display: inline;
+        color: white;
+        float: right;
+    }
+
+    .header-content a {
+        background-color: transparent;
+        border-color: transparent;
+        padding: 10px;
+    }
+
+    .testimonials {
+        height: auto;
+    }
+
+    .footer_icons {
+        float: none;
+        display: inline-block;
+    }
+    
+    .footer_elements {
+        float: none;
+        padding-left: 15px;
+    }
+
+    .attribution {
+        padding-top: 30px;
+        padding-left: 15px;
+    }
+}

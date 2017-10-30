@@ -85,7 +85,7 @@ For this assignment you will create a full-screen carousel, displaying images fr
 3. When the arrows are not being used, they should be semi-transparent. When a user hovers and/or clicks on them, they should have full `opacity`, and the user's <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/cursor" target="_blank">cursor</a> should change to the same cursor used for links.
 4. There should be four dots at the bottom of the paage, one for each slide. When a user is viewing a particular slide, the dot for that slide should have its full `opacity` (including when the page first loads). Otherwise, they should be semi-transparent.
 5. The dots must always be centered at the bottom of the screen, and be slightly smaller on mobile browsers.
-6. The `transition` between slides should should animate the horizontal position (the animation shown above lasted 1 second).
+6. The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition" target="_blank">transition</a> between slides should should animate the horizontal position (the animation shown above lasted 1 second).
 
 #### D. Extra Credit
 

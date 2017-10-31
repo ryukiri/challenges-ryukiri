@@ -16,11 +16,11 @@ By completing this challenge, you will practice and demonstrate the following sk
 
 ## Resources
 
-*   [CSS Selectors](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors)
-*   [CSS Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
-*   [CSS Units](http://www.w3schools.com/cssref/css_units.asp)
-*   [CSS Media Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)
-*   [Bootstrap Documentation](http://getbootstrap.com/css/#overview-container)
+* <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors" target="_blank">CSS Selectors</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="_blank">CSS Properties</a>
+* <a href="http://www.w3schools.com/cssref/css_units.asp" target="_blank">CSS Units</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank">CSS Media Queries</a>
+* <a href="http://getbootstrap.com/css/#overview-container" target="_blank">Bootstrap Documentation</a>
 * <a href="https://validator.w3.org/#validate_by_upload" target="_blank">HTML Validation Service</a>
 * <a href="http://jigsaw.w3.org/css-validator/#validate_by_upload" target="_blank">CSS Validation Service</a>
 
@@ -56,8 +56,8 @@ You will build a responsive marketing site for both desktop and mobile. This is 
 
 To see a screen shot of the entire page, use these links:
 
-*   [Full page at narrow screen width](https://faculty.washington.edu/dlsinfo/info343/responding-style/full-page-sm.png)
-*   [Full page at wide screen width](https://faculty.washington.edu/dlsinfo/info343/responding-style/full-page-lg.png)
+* <a href="https://faculty.washington.edu/dlsinfo/info343/responding-style/full-page-sm.png" target="_blank">Full page at narrow screen width</a>
+* <a href="https://faculty.washington.edu/dlsinfo/info343/responding-style/full-page-lg.png" target="_blank">Full page at wide screen width</a>
 
 Your page doesn't need to be a pixel-perfect match of these screenshots, but it should be very close. All the assets (pictures and SVG icons) are already in the `challenge3` directory in your challenges repo. I will also provide a few specifics regarding fonts, colors, and sizes. Given those, it's your job to figure out how to recreate these screenshots as a live web page.
 
@@ -70,10 +70,10 @@ Just as you did in the previous challenge, create a new branch for this challeng
 Start by looking at the `index.html` file in the `challenge3` directory within your challenges repository. The page already contains links to various resources your page needs:
 
 *   The main Bootstrap CSS file.
-*   The [Lato](https://fonts.google.com/specimen/Lato?query=lato) and [Raleway](https://fonts.google.com/specimen/Raleway?query=raleway) fonts from the Google Fonts collection
-*   The [Font Awesome](http://fontawesome.io/) icon font
+*   The <a href="https://fonts.google.com/specimen/Lato?query=lato" target="_blank">Lato</a> and <a href="https://fonts.google.com/specimen/Raleway?query=raleway" target="_blank">Raleway</a> fonts from the Google Fonts collection
+*   The <a href="http://fontawesome.io/">Font Awesome</a> icon font
 *   Our own CSS file `css/style.css` where you will write your styling rules
-*   A [page icon](https://www.w3.org/2005/10/howto-favicon), located in `img/pencil-icon.png`, which will show up in the browser's tab
+*   A <a href="https://www.w3.org/2005/10/howto-favicon" target="_blank">page icon</a>, located in `img/pencil-icon.png`, which will show up in the browser's tab
 
 ### General Styling
 
@@ -82,8 +82,8 @@ Open the `css/style.css` file and add styling rules. The following general styli
 *   Body text should be rendered in `Lato`, with `Helvetica Neue`, `Helvetica`, `Arial`, and finally `sans-serif` as fallback fonts.
 *   Body text should be rendered at `300` weight
 *   Body text should be rendered at `18` pixels in height
-*   All [headings](http://www.w3schools.com/tags/tag_hn.asp) should be in `Raleway` with the same set of fallback fonts as the body text
-*   All headings should have no margin on top, but the margin on the bottom should be half the [height of the root element's font size](https://www.sitepoint.com/understanding-and-using-rem-units-in-css/)
+*   All <a href="http://www.w3schools.com/tags/tag_hn.asp" target="_blank">headings</a> should be in `Raleway` with the same set of fallback fonts as the body text
+*   All headings should have no margin on top, but the margin on the bottom should be half the <a href="https://www.sitepoint.com/understanding-and-using-rem-units-in-css/" target="_blank">height of the root element's font size</a>
 *   Level 1 headings should use a very thin font weight of `100`
 *   Line height on paragraphs should be `1.43`
 *   Paragraphs should have no margin on top, but the margin on the bottom should be the same height as the root element's font size
@@ -104,13 +104,13 @@ Add the elements necessary for this page header. A few tips:
 
 *   All of the text should be constrained in width so that it doesn't get too wide on large desktop monitors. Use the `container` style class from Bootstrap to do this.
 *   The "Pencil" text should be a level 1 heading, and the other text should be a normal paragraph.
-*   The [shopping cart icon](http://fontawesome.io/icon/shopping-cart/) comes from the font awesome icon font, which is already added to your page. Surround it with a hyperlink so that when it's clicked, the browser navigates to`https://amzn.com/B0188A3N16`. Since it doesn't have any text on narrow screens, you should include an `[aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute)` attribute that describes what the link points to.
+*   The <a href="http://fontawesome.io/icon/shopping-cart/" target="_blank">shopping cart</a> icon comes from the font awesome icon font, which is already added to your page. Surround it with a hyperlink so that when it's clicked, the browser navigates to`https://amzn.com/B0188A3N16`. Since it doesn't have any text on narrow screens, you should include an <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute" target="_blank">aria-label</a> attribute that describes what the link points to.
 *   The "Get Yours Now" button should actually be a hyperlink element, also pointing to `https://amzn.com/B0188A3N16`. Use CSS formatting properties to make it look like a button.
 
 Then add the style rules so that your content matches the screen shots above. A few specifics you will need:
 
 *   On small screens, the header background should have only a linear gradient fill. The gradient should start with the color `#391D18` at the top, and fade into `#814236` at the bottom.
-*   On screens `992` pixels and wider, the background should switch to using the image `img/header.jpg`. It should cover the entire background of the header element, and be [positioned](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position) so that it remains centered horizontally, but at the bottom of the image vertically.
+*   On screens `992` pixels and wider, the background should switch to using the image `img/header.jpg`. It should cover the entire background of the header element, and be <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-position" target="_blank">positioned</a> so that it remains centered horizontally, but at the bottom of the image vertically.
 *   Although the "Get Yours Now" button is a hyperlink element, your styling rules should make it look like a button, as shown in the screenshot. The background color should be `#814236` and the border color should be `#391D18`.
 
 ### Features Section
@@ -134,14 +134,14 @@ Add the elements for the features section of the page. A few tips:
 *   All of the content in this section should be constrained in width so that it doesn't get ridiculously wide on large desktop monitors, but the background color of the entire section should still extend all the way to the edge of the browser window. Make use of the `container` style class already defined for you in `css/style.css`.
 *   The "Packed with Features" text should be a level 2 heading, while the feature titles should be level 3 headings.
 *   The icons are in the `svg` sub-directory. Copy and paste the contents of those SVG files into your HTML page so that you can style them (you can't adjust their colors if you use an `<img>`element that points to the SVG file). Later in the course I will show you how to use a tool like gulp to do this insertion of content during an automated build step.
-*   Use an HTML symbol entity for the [registered trademark symbol](http://www.rapidtables.com/web/html/html-codes/html-code-tm.htm), and make it superscript text.
+*   Use an HTML symbol entity for the <a href="http://www.rapidtables.com/web/html/html-codes/html-code-tm.htm" target="_blank">registered trademark symbol</a>, and make it superscript text.
 
 Add style rules so that your content matches the screen shots above. A few specifics you will need:
 
 *   The section background color should be `#F8F8F8`.
-*   The "Packed with Features" text should be in [small-caps](http://www.w3schools.com/cssref/pr_font_font-variant.asp).
+*   The "Packed with Features" text should be in <a href="http://www.w3schools.com/cssref/pr_font_font-variant.asp" target="_blank">small-caps</a>.
 *   The color of the icons should be `#814236`. Note that the CSS property that controls the color of SVG elements is not the same one that controls the color of text.
-*   The color of the border around each feature card should be `#DFDFDF` and the corners of the border should be [rounded](https://css-tricks.com/almanac/properties/b/border-radius/) by `3px`.
+*   The color of the border around each feature card should be `#DFDFDF` and the corners of the border should be <a href="https://css-tricks.com/almanac/properties/b/border-radius/">rounded</a> by `3px`.
 *   The background color of each card should be white.
 *   On narrow mobile screens, the feature cards should be stacked on top of each other, with the feature icon on the left, as shown above.
 *   On screens `768` pixels and wider, the cards should be in a 2x2 layout, and the icons should appear on top of the feature title.
@@ -186,14 +186,14 @@ Following the grand tradition of marketing sites, the next section contains test
 Add the elements for this section of the page. A few specific requirements and options:
 
 *   All of the content should be constrained in width so that it doesn't get ridiculously wide on large desktop monitors, but the background color should extend to the edge of the browser window.
-*   The first image should come from `https://www.gravatar.com/avatar/0e58cf2f03c9a0a5d6965154837cd595`. The second should come from`https://www.gravatar.com/avatar/71900224a10dd5cb3f230f9f64eeaf43`. If you're feeling adventurous, create your own [Gravatar account](https://en.gravatar.com/), upload your own profile picture, and use it instead. See [their API](https://en.gravatar.com/site/implement/images/) for details on the URL format. To get the MD5 hash for your email address, use this [MD5 generator site](http://www.miraclesalad.com/webtools/md5.php).
+*   The first image should come from `https://www.gravatar.com/avatar/0e58cf2f03c9a0a5d6965154837cd595`. The second should come from `https://www.gravatar.com/avatar/71900224a10dd5cb3f230f9f64eeaf43`. If you're feeling adventurous, create your own <a href="https://en.gravatar.com/" target="_blank">Gravatar</a> account, upload your own profile picture, and use it instead. See <a href="https://en.gravatar.com/site/implement/images/" target="_blank">their API</a> for details on the URL format. To get the MD5 hash for your email address, use this <a href="http://www.miraclesalad.com/webtools/md5.php" target="_blank">MD5 generator site</a>.
 
 Add style rules so that your content matches the screen shots above. A few specifics you will need:
 
 *   The section background color should be `#F8F8F8`.
 *   The person's name should be in normal black text, but their title should be only `80` percent as tall and in the color `#999999`.
 *   The profile picture should appear to the left of the name and text, as shown above.
-*   The profile picture should be [rounded into a circle](https://css-tricks.com/almanac/properties/b/border-radius/), even though the original image is a rectangle.
+*   The profile picture should be <a href="https://css-tricks.com/almanac/properties/b/border-radius/" target="_blank">rounded into a circle</a>, even though the original image is a rectangle.
 *   On narrow mobile screens, the testimonials should stack on top of each other.
 *   On screens `768` pixels and wider, they should appear side-by-side.
 
@@ -213,9 +213,9 @@ Add the elements for this section of the page. A few notes:
 
 *   The copyright symbol should be added using an HTML symbol entity.
 *   The contact link icons are from the Font Awesome icon font. From left-to-right, they are:
-    *   [envelope](http://fontawesome.io/icon/envelope/): should be surrounded by a hyperlink that when clicked starts a new email message addressed to `info@pencil.com`.
-    *   [twitter](http://fontawesome.io/icon/twitter/): should be surrounded by a hyperlink that when clicked navigates to `https://twitter.com/pencilorg`.
-    *   [facebook](http://fontawesome.io/icon/facebook/): should be surrounded by a hyperlink that when clicked navigates to `https://www.facebook.com/search/top/?q=pencil`.Since these icons have no text that a screen reader can read, add `aria-label` attributes to them. The text in that attribute will be spoken by the screen reader when the user tabs to the surrounding hyperlink.
+    *   <a href="http://fontawesome.io/icon/envelope/" target="_blank">envelope</a>: should be surrounded by a hyperlink that when clicked starts a new email message addressed to `info@pencil.com`.
+    *   <a href="http://fontawesome.io/icon/twitter/" target="_blank">twitter</a>: should be surrounded by a hyperlink that when clicked navigates to `https://twitter.com/pencilorg`.
+    *   <a href="http://fontawesome.io/icon/facebook/" target="_blank">facebook</a>: should be surrounded by a hyperlink that when clicked navigates to `https://www.facebook.com/search/top/?q=pencil`.Since these icons have no text that a screen reader can read, add `aria-label` attributes to them. The text in that attribute will be spoken by the screen reader when the user tabs to the surrounding hyperlink.
 *   Use this for the attribution text:
 
         <p>Icons made by
@@ -236,7 +236,7 @@ Add style rules so that your content matches the screen shots above. A few speci
 
 *   The background color should be `#391D18`.
 *   The text color should be `#EEEEEE`.
-*   The hyperlink text color should be `#AAAAAA` and should [not have any underlining](http://www.w3schools.com/css/css_link.asp), even when you hover over the hyperlinks with a mouse.
+*   The hyperlink text color should be `#AAAAAA` and should <a href="http://www.w3schools.com/css/css_link.asp" target="_blank">not have any underlining</a>, even when you hover over the hyperlinks with a mouse.
 
 ## Submitting Your Assignment
 

@@ -1,0 +1,128 @@
+[debug] [2017-11-05T23:43:42.562Z] ----------------------------------------------------------------------
+[debug] [2017-11-05T23:43:42.564Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Austin Quach\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-11-05T23:43:42.564Z] CLI Version:   3.14.0
+[debug] [2017-11-05T23:43:42.564Z] Platform:      win32
+[debug] [2017-11-05T23:43:42.564Z] Node Version:  v6.11.1
+[debug] [2017-11-05T23:43:42.565Z] Time:          Sun Nov 05 2017 15:43:42 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-05T23:43:42.565Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-05T23:43:42.575Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-05T23:43:42.575Z] > authorizing via signed-in user
+[debug] [2017-11-05T23:43:42.577Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-11-05T23:43:42.577Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/WldvZKKpmnbM4VDCf-ZBwwmoTR4Yd8Mth7VpxheFOJg',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun Nov 05 2017 15:43:42 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-05T23:43:42.697Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-05T23:43:42.701Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/chat-8469e  
+ Sun Nov 05 2017 15:43:42 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-05T23:43:43.099Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-05T23:43:43.100Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/chat-8469e/tokens  
+ Sun Nov 05 2017 15:43:43 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-05T23:43:43.551Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Austin Quach\Google Drive\College\Junior\Info 343\challenges-ryukiri\challenge6'...
+[info] 
+[debug] [2017-11-05T23:43:43.555Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/chat-8469e  
+ Sun Nov 05 2017 15:43:43 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-05T23:43:44.145Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-05T23:43:44.145Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/56673259576/clients/_:getWebAppConfig  
+ Sun Nov 05 2017 15:43:44 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-05T23:43:44.525Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
+[debug] [2017-11-06T00:24:27.073Z] ----------------------------------------------------------------------
+[debug] [2017-11-06T00:24:27.075Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Austin Quach\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-11-06T00:24:27.075Z] CLI Version:   3.14.0
+[debug] [2017-11-06T00:24:27.075Z] Platform:      win32
+[debug] [2017-11-06T00:24:27.075Z] Node Version:  v6.11.1
+[debug] [2017-11-06T00:24:27.076Z] Time:          Sun Nov 05 2017 16:24:27 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-06T00:24:27.076Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-06T00:24:27.086Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-06T00:24:27.086Z] > authorizing via signed-in user
+[debug] [2017-11-06T00:24:27.088Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/chat-8469e  
+ Sun Nov 05 2017 16:24:27 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-06T00:24:27.524Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-06T00:24:27.527Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/chat-8469e/tokens  
+ Sun Nov 05 2017 16:24:27 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-06T00:24:27.959Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Austin Quach\Google Drive\College\Junior\Info 343\challenges-ryukiri\challenge6'...
+[info] 
+[debug] [2017-11-06T00:24:27.963Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/chat-8469e  
+ Sun Nov 05 2017 16:24:27 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-06T00:24:28.272Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-06T00:24:28.274Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/56673259576/clients/_:getWebAppConfig  
+ Sun Nov 05 2017 16:24:28 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-06T00:24:28.633Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
+[debug] [2017-11-06T00:27:56.732Z] ----------------------------------------------------------------------
+[debug] [2017-11-06T00:27:56.734Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Austin Quach\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-11-06T00:27:56.735Z] CLI Version:   3.14.0
+[debug] [2017-11-06T00:27:56.735Z] Platform:      win32
+[debug] [2017-11-06T00:27:56.735Z] Node Version:  v6.11.1
+[debug] [2017-11-06T00:27:56.735Z] Time:          Sun Nov 05 2017 16:27:56 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-06T00:27:56.735Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-06T00:27:56.746Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-06T00:27:56.746Z] > authorizing via signed-in user
+[debug] [2017-11-06T00:27:56.748Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/chat-8469e  
+ Sun Nov 05 2017 16:27:56 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-06T00:27:57.144Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-06T00:27:57.145Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/chat-8469e/tokens  
+ Sun Nov 05 2017 16:27:57 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-06T00:27:57.601Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Austin Quach\Google Drive\College\Junior\Info 343\challenges-ryukiri\challenge6'...
+[info] 
+[debug] [2017-11-06T00:27:57.603Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/chat-8469e  
+ Sun Nov 05 2017 16:27:57 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-06T00:27:57.921Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-06T00:27:57.921Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/56673259576/clients/_:getWebAppConfig  
+ Sun Nov 05 2017 16:27:57 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-06T00:27:58.281Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
+[debug] [2017-11-06T00:45:11.311Z] ----------------------------------------------------------------------
+[debug] [2017-11-06T00:45:11.313Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Austin Quach\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-11-06T00:45:11.314Z] CLI Version:   3.14.0
+[debug] [2017-11-06T00:45:11.314Z] Platform:      win32
+[debug] [2017-11-06T00:45:11.314Z] Node Version:  v6.11.1
+[debug] [2017-11-06T00:45:11.314Z] Time:          Sun Nov 05 2017 16:45:11 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-06T00:45:11.314Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-06T00:45:11.324Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-06T00:45:11.324Z] > authorizing via signed-in user
+[debug] [2017-11-06T00:45:11.326Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-11-06T00:45:11.326Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/WldvZKKpmnbM4VDCf-ZBwwmoTR4Yd8Mth7VpxheFOJg',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun Nov 05 2017 16:45:11 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-06T00:45:11.454Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-06T00:45:11.461Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/chat-8469e  
+ Sun Nov 05 2017 16:45:11 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-06T00:45:11.874Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-06T00:45:11.875Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/chat-8469e/tokens  
+ Sun Nov 05 2017 16:45:11 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-06T00:45:12.320Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Austin Quach\Google Drive\College\Junior\Info 343\challenges-ryukiri\challenge6'...
+[info] 
+[debug] [2017-11-06T00:45:12.323Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/chat-8469e  
+ Sun Nov 05 2017 16:45:12 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-06T00:45:12.656Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-06T00:45:12.656Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/56673259576/clients/_:getWebAppConfig  
+ Sun Nov 05 2017 16:45:12 GMT-0800 (Pacific Standard Time)
+[debug] [2017-11-06T00:45:12.988Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+

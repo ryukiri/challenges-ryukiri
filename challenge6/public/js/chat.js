@@ -51,13 +51,37 @@ auth.onAuthStateChanged(function(user) {
             var id = data.key;
             var message = data.val();
 
-            var text = message.text;
+            var messageText = message.text;
             var timestamp = message.timestamp;
+            var displayName = message.displayName;
 
+            // Create li element
             var messageLi = document.createElement('li');
             messageLi.id = id;
-            messageLi.innerText = text;
 
+            // Create controls
+            var controlsDiv = document.createElement('div');
+            controlsDiv.classList.add('message-controls');
+
+            // Create message div
+            var messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+
+            // Create message text
+            var messageParagraph = document.createElement('p');
+            messageParagraph.classList.add('message-text');
+            messageParagraph.textContent = messageText;
+
+            // Append controls to message div
+            messageDiv.appendChild(controlsDiv);
+
+            // Append message text to message div
+            messageDiv.appendChild(messageParagraph);
+
+            // Append message div to message li
+            messageLi.appendChild(messageDiv);
+
+            //Append message li to message ul
             messagesList.appendChild(messageLi);
         });
 
@@ -87,6 +111,10 @@ auth.onAuthStateChanged(function(user) {
 messageForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
+    var user = auth.currentUser;
+    var userId = user.uid;
+    console.log(user);
+
     // Connect to the firebase data
     var database = firebase.database();
 
@@ -98,6 +126,8 @@ messageForm.addEventListener("submit", function (e) {
 
     // Create a new message and add it to the list.
     messages.push({
+        displayName: user.displayName,
+        userId: userId,
         text: message,
         timestamp: new Date().getTime() // unix timestamp in milliseconds
     })

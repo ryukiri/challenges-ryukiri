@@ -54,6 +54,14 @@
     margin-bottom: 50px;
 }
 
+.alert-danger {
+    display: none;
+}
+
+.alert-danger.active {
+    display: block;
+}
+
 @media (max-width: 992px) {
     .left {
         float: clear;

@@ -8,8 +8,14 @@
  var formLogin = document.getElementById('login-form');
  var emailLogin = document.getElementById('login-inputEmail');
  var passwordLogin = document.getElementById('login-inputPassword');
+ var loginError = document.getElementById('login-error');
 
  var auth = firebase.auth();
+
+ function setLoginError(message) {
+     loginError.textContent = message;
+     loginError.classList.add('active');
+ }
 
  formLogin.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -19,6 +25,10 @@
 
     console.log(email);
     console.log(password);
+
+    if (!email || !password) {
+        setLoginError('Email and password are required');
+    } else {
 
     //Display Loading Bar
     //loadingBar.style.display = 'block';
@@ -32,7 +42,9 @@
 
         .catch(function (error) {
             console.log(error.message);
+            setLoginError(error.message);
         });
+    }
  });
 
 // Signup Stuff
@@ -41,34 +53,68 @@ var displayNameInput = document.getElementById('signup-displayname');
 var signupEmailInput = document.getElementById('signup-InputEmail');
 var signupPasswordInput = document.getElementById('signup-InputPassword');
 var signupConfirmPasswordInput = document.getElementById('signup-InputPasswordConfirm');
+var signUpError = document.getElementById('signup-error');
 
 var isSigningUp = false;
 
+function setSignUpError(message) {
+    signUpError.textContent = message;
+    signUpError.classList.add('active');
+}
+
+function clearSignUpError() {
+    signUpError.textContent = "";
+    signUpError.classList.remove('active');
+}
+
 signupForm.addEventListener('submit', function(e) {
     e.preventDefault();
+
+    clearSignUpError();
 
     isSigningUp = true;
 
     var email = signupEmailInput.value;
     var password = signupPasswordInput.value;
+    var passwordConfirm = signupConfirmPasswordInput.value;
+    var displaynameValue = displayNameInput.value;
 
-    auth.createUserWithEmailAndPassword(email, password)
-    .then(function (user) {
-        console.log(user);
+    if(!email) {
+        setSignUpError('Email is required');
+    }else if (password != passwordConfirm) {
+        setSignUpError('Passwords do not match');
+    } else {
+        auth.createUserWithEmailAndPassword(email, password)
+        .then(function (user) {
+            console.log(user);
 
-        // Set display name and photo url
+            user.updateProfile({
+                displayName: displaynameValue
+            })
+            .then(function () {
+                return user.sendVerificationEmail();
+                .catch(function (verificationEmailErro) {
+                    console.log('sending email verifcation error');
+                })
+            })
+            .then(function () {
+                window.location.href = 'chat.html';
+            });
 
-        // Send verificatino email
-        console.log('send email');
+            // Set display name and photo url
 
-        // Redirect
+            // Send verificatino email
+            console.log('send email');
 
-        //window.location.href = 'chat.html';        
-    })
-    .catch(function (e) {
-        // Display error messages
-        console.log(error.message);
-    });
+            // Redirect
+            console.log('redirect');
+
+        })
+        .catch(function (e) {
+            // Display error messages
+            setSignUpError(error.message);
+        });
+    }
 });
 
 auth.onAuthStateChanged(function(user) {

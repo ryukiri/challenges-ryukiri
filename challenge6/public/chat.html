@@ -6,46 +6,142 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Chat App (change this title!)</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    
     <!--Material Design CSS-->
     <link href="http://cdn.muicss.com/mui-0.9.28/css/mui.min.css" rel="stylesheet" type="text/css" />
     <script src="http://cdn.muicss.com/mui-0.9.28/js/mui.min.js"></script>
 
-    <link rel="stylesheet" href="css/style.css">
+    <!--MD Lite-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.light_blue-purple.min.css" /> 
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
 </head>
 <body>
 
+    <!--
     <div class="mui-appbar">
         <table width="100%">
           <tr style="vertical-align:middle;">
             <td class="mui--appbar-height">
                 <h1 class="padding">Chat</h1>
             </td>
+            <td class="mui--appbar-height">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Menu 1</a></li>
+                    <li><a href="#">Menu 2</a></li>
+                    <li><a href="#">Menu 3</a></li>
+                </ul>
+            </td>
             <td class="mui--appbar-height" align="right">
                 <button class="mui-btn mui-btn--primary padding" id="logout">Log Out</button>
             </td>
           </tr>
         </table>
-      </div>
+    </div>
+    -->
 
-    <div class="container">
-        <ul id="messages"></ul>
-        
-        <form id="message-form">
-                <div class="mui-textfield">
-                    <textarea placeholder="Enter your message" rows="10" id="message-input"></textarea>
-                </div>
-    
-            <button type="submit" class="mui-btn mui-btn--raised mui-btn--primary">Submit</button>
-        </form>
+    <!-- Uses a header that scrolls with the text, rather than staying
+    locked at the top -->
+    <div class="mdl-layout mdl-js-layout">
+        <header class="mdl-layout__header mdl-layout__header--scroll">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Title</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation -->
+            <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link">
+                <button id="show-dialog" type="button" class="mdl-button">Show Dialog</button>
+                <dialog class="mdl-dialog">
+                    <h4 class="mdl-dialog__title">Allow data collection?</h4>
+                        <div class="mdl-dialog__content">
+                            <p>
+                                Allowing us to collect data will let us get you the information you want faster.
+                            </p>
+                        </div>
+                    <div class="mdl-dialog__actions">
+                        <button type="button" class="mdl-button">Agree</button>
+                        <button type="button" class="mdl-button close">Disagree</button>
+                    </div>
+                </dialog>
+
+            </a>
+            <a class="mdl-navigation__link" href="">
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+                        <i class="material-icons md-36">face</i>
+                    <!--
+                        <i class="material-icons mdl-list__item-avatar">person</i>
+                    -->
+                </button>
+            </a>
+            <a class="mdl-navigation__link" href="">
+                <button class="mui-btn mui-btn--primary padding" id="logout">Log Out</button>
+            </a>
+            </nav>
+        </div>
+        </header>
+        <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Channels</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="#general">general</a>
+            <a class="mdl-navigation__link" href="#music">music</a>
+            <a class="mdl-navigation__link" href="#random">random</a>
+        </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content" id="page-content"><!-- Your content goes here -->
+                <div class="container">
+                    <ul id="messages"></ul>
+                    
+                    <form id="message-form">
+                        <div class="mui-textfield">
+                            <textarea placeholder="Enter your message" rows="4" id="message-input" class="left"></textarea>
+                        </div>
+                    
+                        <button class="right mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </form>
+                </div> <!--Container-->
+                <!--<ul class="messageList">
+                    <li class="message-controls mdl-list__item mdl-list__item--two-line mdl-shadow--4dp">
+                        <span class="mdl-list__item-primary-content">
+                            <div class="message-controls">
+                                <span class="message-author">Display Name</span>
+                                <span class="message-time">Time</span>
+                            </div>
+                            <i class="material-icons mdl-list__item-avatar">person</i>
+                            <p class="message-text">Hello World!</p>
+                        </span>
+                    </li>
+                    <li class="mdl-list__item mdl-list__item--two-line mdl-shadow--4dp">
+                        <span class="mdl-list__item-primary-content">
+                            <span class="mdl-list__item-sub-title">62 Episodes</span>
+                            <i class="material-icons mdl-list__item-avatar">person</i>
+                            <p class="message-text">Test Message</p>
+                        </span>
+                    </li>
+                </ul>-->
+            </div> <!--Page Content-->
+        </main>
     </div>
 
+    
+
+    <!--
     <div class="message">
-        <div>
+        <div class="message-controls">
             <span class="message-author">Display Name</span>
             <span class="message-time">Time</span>
         </div>
         <p class="message-text">Hello, world!</p>
     </div>
+    -->
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>

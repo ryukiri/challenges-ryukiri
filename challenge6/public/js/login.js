@@ -79,7 +79,9 @@ signupForm.addEventListener('submit', function(e) {
     var passwordConfirm = signupConfirmPasswordInput.value;
     var displaynameValue = displayNameInput.value;
 
-    if(!email) {
+    if(!displaynameValue) {
+        setSignUpError('Name is required');
+    }else if(!email) {
         setSignUpError('Email is required');
     }else if (password != passwordConfirm) {
         setSignUpError('Passwords do not match');
@@ -92,10 +94,12 @@ signupForm.addEventListener('submit', function(e) {
                 displayName: displaynameValue
             })
             .then(function () {
-                return user.sendVerificationEmail();
-                .catch(function (verificationEmailErro) {
+                return user.sendEmailVerification()
+                .catch(function (verificationEmailError) {
+                    // Display error messages
                     console.log('sending email verifcation error');
                 })
+                
             })
             .then(function () {
                 window.location.href = 'chat.html';

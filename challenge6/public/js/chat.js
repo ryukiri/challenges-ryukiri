@@ -21,28 +21,26 @@ var messagesList = document.getElementById("messages");
 var messageForm = document.getElementById("message-form");
 var messageInput = document.getElementById("message-input");
 
+function timeConverter(UNIX_timestamp){
+    var a = new Date(UNIX_timestamp);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var sec = a.getSeconds();
+    var time = month + ' ' + date + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+    return time;
+}
+
 auth.onAuthStateChanged(function(user) {
     // If the user is logged in, user will be an object (truthy).
     // Otherwise, it will be null (falsey).
     if (user) {
         // Logged in
-
-        // Code to get and set values in the database
-
-        // var testRef = database.ref('test2/test3');
-        // testRef.set({
-        //     property: 'Value'
-        // })
-
-        // var testRef = database.ref('test2/test3');
-        // testRef.on('value', function(snapshot) {
-        //     var val = snapshot.val();
-
-        //     console.log(val);
-        // });
-
         var messages = database.ref('messages');
-
+        
         // This event listener will be called for each item
         // that has been added to the list.
         // Use this to generate each chat message,
@@ -55,6 +53,75 @@ auth.onAuthStateChanged(function(user) {
             var timestamp = message.timestamp;
             var displayName = message.displayName;
 
+            // Create ul element
+            var messageUl = document.createElement('ul');
+            messageUl.id = id;
+            messageUl.classList.add('messageList');
+
+            // Create message li
+            var messageLi = document.createElement('li');
+            messageLi.classList.add('message-controls');
+            messageLi.classList.add('mdl-list__item');
+            messageLi.classList.add('mdl-list__item--two-line');
+            messageLi.classList.add('mdl-shadow--4dp');
+
+            // Create primary list
+            var messagePrime = document.createElement('span');
+            messagePrime.classList.add('mdl-list__item-primary-content');
+
+            // Create controls
+            var controlsDiv = document.createElement('div');
+            controlsDiv.classList.add('message-controls');
+
+            // Create time stamp
+            var messagesTime = document.createElement('span');
+            messagesTime.classList.add('message-time');
+            messagesTime.textContent = timeConverter(timestamp);
+
+            // Create user name
+            var messagesName = document.createElement('span');
+            messagesName.classList.add('message-author');
+            messagesName.textContent = '\t' + auth.currentUser.displayName;
+
+             // Create message text
+             var messageParagraph = document.createElement('p');
+             messageParagraph.classList.add('message-text');
+             messageParagraph.textContent = messageText;
+
+             // Create user icon
+             var messageIcon = document.createElement('i');
+             messageIcon.classList.add('material-icons');
+             messageIcon.classList.add('mdl-list__item-avatar');
+             messageIcon.textContent = "person";
+            /*var photoURL = "https://www.gravatar.com/avatar/" + md5(auth.currentUser.email);
+            var messageIcon = document.createElement('img');
+            messageIcon.src = photoURL;*/
+
+            // Append controls to message div
+            messagePrime.appendChild(controlsDiv);
+
+            // Append messagesTime to message control
+            controlsDiv.appendChild(messagesTime);
+
+            // Append messagesName to message control
+            controlsDiv.appendChild(messagesName);
+
+            // Append user icon to message prime
+            messagePrime.appendChild(messageIcon);
+
+            // Append message text to message prime
+            messagePrime.appendChild(messageParagraph);
+
+            // Append message prime to message li
+            messageLi.appendChild(messagePrime);
+
+            // Append message li to message ul
+            messageUl.appendChild(messageLi);
+            messagesList.appendChild(messageUl);
+            //var pageContent = document.getElementById('page-conotent');
+            //pageContent.appendChild(messageUl);
+
+            /*
             // Create li element
             var messageLi = document.createElement('li');
             messageLi.id = id;
@@ -82,7 +149,7 @@ auth.onAuthStateChanged(function(user) {
             messageLi.appendChild(messageDiv);
 
             //Append message li to message ul
-            messagesList.appendChild(messageLi);
+            messagesList.appendChild(messageLi);*/
         });
 
         // This event listener will be called whenever an item in the list is edited.
@@ -113,7 +180,7 @@ messageForm.addEventListener("submit", function (e) {
 
     var user = auth.currentUser;
     var userId = user.uid;
-    console.log(user);
+    console.log(userId);
 
     // Connect to the firebase data
     var database = firebase.database();
@@ -137,4 +204,16 @@ messageForm.addEventListener("submit", function (e) {
     .catch(function(error) {
         // message not created succesfully
     });
+});
+
+var dialog = document.querySelector('dialog');
+var showDialogButton = document.querySelector('#show-dialog');
+if (! dialog.showModal) {
+  dialogPolyfill.registerDialog(dialog);
+}
+showDialogButton.addEventListener('click', function() {
+  dialog.showModal();
+});
+dialog.querySelector('.close').addEventListener('click', function() {
+  dialog.close();
 });

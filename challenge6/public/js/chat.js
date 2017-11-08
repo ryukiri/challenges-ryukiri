@@ -13,6 +13,10 @@ var database = firebase.database();
 var profileButton = document.getElementById('show-dialog');
 var changeInfoError = document.getElementById('change-error');
 
+var path = window.location.pathname;
+var page = path.split("/").pop();
+console.log(page);
+
 
 function changeError(message) {
     changeInfoError.textContent = message;
@@ -110,7 +114,12 @@ auth.onAuthStateChanged(function(user) {
     if (user) {
         // Logged in
         var messages = database.ref('messages');
-        
+        if (page == "music.html") {
+            messages = database.ref('music');
+        } else if(page == "random.html") {
+            messages = database.ref('random');
+        }
+
         // This event listener will be called for each item
         // that has been added to the list.
         // Use this to generate each chat message,
@@ -222,9 +231,15 @@ messageForm.addEventListener("submit", function (e) {
 
     // Connect to the firebase data
     var database = firebase.database();
-
+    
     // Get the ref for your messages list
     var messages = database.ref('messages');
+    if (page == "music.html") {
+        messages = database.ref('music');
+    } else if(page == "random.html") {
+        messages = database.ref('random');
+    }
+    
 
     // Get the message the user entered
     var message = messageInput.value;

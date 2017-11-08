@@ -10,6 +10,49 @@
 var logoutButton = document.getElementById('logout');
 var auth = firebase.auth();
 var database = firebase.database();
+var profileButton = document.getElementById('show-dialog');
+
+profileButton.addEventListener('click', function (e) {
+    var profileName = document.getElementById('profile-name');
+    profileName.textContent = auth.currentUser.displayName;
+
+    var saveButton = document.getElementById('saveButton');
+    saveButton.addEventListener('click', function(e) {
+        var user = firebase.auth().currentUser;
+        var changeNameInput = document.getElementById('change-displayname').value;
+        var changeEmailInput = document.getElementById('change-InputEmail').value;
+
+        if (!changeNameInput || changeNameInput == auth.currentUser.displayName) {
+            changeNameInput = auth.currentUser.displayName;
+        }
+
+        if (!changeEmailInput || changeEmailInput == auth.currentUser.email) {
+            changeEmailInput = auth.currentUser.email;
+        } else {
+            user.updateEmail(changeEmailInput).then(function() {
+                // Update successful.
+                console.log(changeEmailInput);
+            }).catch(function(error) {
+                // An error happened.
+                console.log(error);
+            });
+        }
+        
+        user.updateProfile({
+            displayName: changeNameInput,
+                            
+        }).then(function() {
+            // Profile updated successfully!
+            var displayName = user.displayName;
+            profileName.textContent = auth.currentUser.displayName;
+            console.log(displayName);
+        }, function(error) {
+            // An error happened.
+        });
+        
+    })
+
+})
 
  logoutButton.addEventListener('click', function (e) {
     console.log(e);
@@ -118,38 +161,6 @@ auth.onAuthStateChanged(function(user) {
             // Append message li to message ul
             messageUl.appendChild(messageLi);
             messagesList.appendChild(messageUl);
-            //var pageContent = document.getElementById('page-conotent');
-            //pageContent.appendChild(messageUl);
-
-            /*
-            // Create li element
-            var messageLi = document.createElement('li');
-            messageLi.id = id;
-
-            // Create controls
-            var controlsDiv = document.createElement('div');
-            controlsDiv.classList.add('message-controls');
-
-            // Create message div
-            var messageDiv = document.createElement('div');
-            messageDiv.classList.add('message');
-
-            // Create message text
-            var messageParagraph = document.createElement('p');
-            messageParagraph.classList.add('message-text');
-            messageParagraph.textContent = messageText;
-
-            // Append controls to message div
-            messageDiv.appendChild(controlsDiv);
-
-            // Append message text to message div
-            messageDiv.appendChild(messageParagraph);
-
-            // Append message div to message li
-            messageLi.appendChild(messageDiv);
-
-            //Append message li to message ul
-            messagesList.appendChild(messageLi);*/
         });
 
         // This event listener will be called whenever an item in the list is edited.

@@ -19,30 +19,6 @@
 
 </head>
 <body>
-
-    <!--
-    <div class="mui-appbar">
-        <table width="100%">
-          <tr style="vertical-align:middle;">
-            <td class="mui--appbar-height">
-                <h1 class="padding">Chat</h1>
-            </td>
-            <td class="mui--appbar-height">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Menu 1</a></li>
-                    <li><a href="#">Menu 2</a></li>
-                    <li><a href="#">Menu 3</a></li>
-                </ul>
-            </td>
-            <td class="mui--appbar-height" align="right">
-                <button class="mui-btn mui-btn--primary padding" id="logout">Log Out</button>
-            </td>
-          </tr>
-        </table>
-    </div>
-    -->
-
     <!-- Uses a header that scrolls with the text, rather than staying
     locked at the top -->
     <div class="mdl-layout mdl-js-layout">
@@ -56,29 +32,30 @@
             <nav class="mdl-navigation">
             <a class="mdl-navigation__link" href="">Link</a>
             <a class="mdl-navigation__link">
-                <button id="show-dialog" type="button" class="mdl-button">Show Dialog</button>
-                <dialog class="mdl-dialog">
-                    <h4 class="mdl-dialog__title">Allow data collection?</h4>
+                
+                <button id="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+                    <i class="material-icons md-36">face</i>
+                </button>
+                <dialog class="mdl-dialog" id="profile-dialog">
+                    <h4 class="mdl-dialog__title" id="profile-name"></h4>
                         <div class="mdl-dialog__content">
-                            <p>
-                                Allowing us to collect data will let us get you the information you want faster.
-                            </p>
+                            <div class="mui-textfield">
+                                <label for="change-displayname">Display Name:</label>
+                                <input type="text" class="form-control" id="change-displayname" aria-describedby="nameHelp" placeholder="First Name Last Name">
+                            </div>
+                            <div class="mui-textfield">
+                                <label for="change-InputEmail">Email:</label>
+                                <input type="email" class="form-control" id="change-InputEmail" aria-describedby="emailHelp" placeholder="test@example.com">
+                            </div>
                         </div>
                     <div class="mdl-dialog__actions">
-                        <button type="button" class="mdl-button">Agree</button>
-                        <button type="button" class="mdl-button close">Disagree</button>
+                        <button type="button" class="mdl-button" id="saveButton">Save</button>
+                        <button type="button" class="mdl-button close">Cancel</button>
                     </div>
                 </dialog>
 
             </a>
-            <a class="mdl-navigation__link" href="">
-                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
-                        <i class="material-icons md-36">face</i>
-                    <!--
-                        <i class="material-icons mdl-list__item-avatar">person</i>
-                    -->
-                </button>
-            </a>
+            <a class="mdl-navigation__link" href=""></a>
             <a class="mdl-navigation__link" href="">
                 <button class="mui-btn mui-btn--primary padding" id="logout">Log Out</button>
             </a>

@@ -82,6 +82,10 @@
     float: right;
 }
 
+#profile-dialog {
+    width: 60%;
+}
+
 #message-input {
     float: left;
     width: 90%;

@@ -15,7 +15,6 @@ By completing this challenge, you will practice and demonstrate the following sk
 *   Using custom web fonts from the Google Fonts collection.
 
 ## Resources
-
 *   [CSS Selectors](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors)
 *   [CSS Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
 *   [CSS Units](http://www.w3schools.com/cssref/css_units.asp)
@@ -55,7 +54,6 @@ You will build a responsive marketing site for both desktop and mobile. This is 
 <span>![](https://faculty.washington.edu/dlsinfo/info343/responding-style/preview-lg.png)</span>
 
 To see a screen shot of the entire page, use these links:
-
 *   [Full page at narrow screen width](https://faculty.washington.edu/dlsinfo/info343/responding-style/full-page-sm.png)
 *   [Full page at wide screen width](https://faculty.washington.edu/dlsinfo/info343/responding-style/full-page-lg.png)
 

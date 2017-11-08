@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>INFO 343 APOD</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" type="text/css" />
+
+    <!--  jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <h1>INFO 343 APOD</h1>
+    <div id="picture">
+        <img src="image.jpg" id="image" alt="Astronomy Picture of the Day"/>
+    </div>
+
+    <div class="container">
+        <h1 id="title">Title</h1>
+    </div>
+
+    <div>
+        <p id="explanation" class="container">
+
+        </p>
+    </div>
+
+    <p class="date">
+        Choose a date:  
+        <input id="datefield" type='date' min='1899-01-01' max='2000-12-13'/>
+    </p>
+    
+    <progress id="bar"></progress>
+
+    <script src="js/app.js" type="text/javascript"></script>
+</body>
+</html>

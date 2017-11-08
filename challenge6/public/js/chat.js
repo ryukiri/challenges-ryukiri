@@ -11,6 +11,18 @@ var logoutButton = document.getElementById('logout');
 var auth = firebase.auth();
 var database = firebase.database();
 var profileButton = document.getElementById('show-dialog');
+var changeInfoError = document.getElementById('change-error');
+
+
+function changeError(message) {
+    changeInfoError.textContent = message;
+    changeInfoError.classList.add('active');
+}
+
+function clearChangeError() {
+    changeInfoError.textContent = "";
+    changeInfoError.classList.remove('active');
+}
 
 profileButton.addEventListener('click', function (e) {
     var profileName = document.getElementById('profile-name');
@@ -21,6 +33,21 @@ profileButton.addEventListener('click', function (e) {
         var user = firebase.auth().currentUser;
         var changeNameInput = document.getElementById('change-displayname').value;
         var changeEmailInput = document.getElementById('change-InputEmail').value;
+        var changePasswordInput = document.getElementById('change-InputPassword').value;
+        var changePasswordInputConfirm = document.getElementById('change-InputPasswordConfirm').value;
+        
+        if(changePasswordInput != changePasswordInputConfirm) {
+            changeError('Passwords do not match.');
+        } else {
+            user.updatePassword(changePasswordInput).then(function() {
+            // Update successful.
+            console.log(changePasswordInput);
+            clearChangeError();
+            }).catch(function(error) {
+            // An error happened.
+            changeError(error);
+            });
+        }
 
         if (!changeNameInput || changeNameInput == auth.currentUser.displayName) {
             changeNameInput = auth.currentUser.displayName;
@@ -34,7 +61,7 @@ profileButton.addEventListener('click', function (e) {
                 console.log(changeEmailInput);
             }).catch(function(error) {
                 // An error happened.
-                console.log(error);
+                changeError(error);
             });
         }
         
@@ -211,6 +238,7 @@ messageForm.addEventListener("submit", function (e) {
     })
     .then(function () {
         // message created succesfully
+        messageInput.value = '';
     })
     .catch(function(error) {
         // message not created succesfully

@@ -34,3 +34,39 @@
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5000
 
+[debug] [2017-11-08T18:29:40.762Z] ----------------------------------------------------------------------
+[debug] [2017-11-08T18:29:40.764Z] Command:       /usr/local/Cellar/node/8.2.1/bin/node /usr/local/bin/firebase serve
+[debug] [2017-11-08T18:29:40.764Z] CLI Version:   3.14.0
+[debug] [2017-11-08T18:29:40.764Z] Platform:      darwin
+[debug] [2017-11-08T18:29:40.764Z] Node Version:  v8.2.1
+[debug] [2017-11-08T18:29:40.765Z] Time:          Wed Nov 08 2017 10:29:40 GMT-0800 (PST)
+[debug] [2017-11-08T18:29:40.765Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-08T18:29:40.786Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-08T18:29:40.786Z] > authorizing via signed-in user
+[debug] [2017-11-08T18:29:40.788Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-11-08T18:29:40.789Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/EgpQeLJ-b-xdbOWZvlD5u2lulQkBC8flLhDCudHuPppeQpyQoH9MFVsCJx9fqOWn',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed Nov 08 2017 10:29:40 GMT-0800 (PST)
+[debug] [2017-11-08T18:29:40.903Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-08T18:29:40.909Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/chat-8469e  
+ Wed Nov 08 2017 10:29:40 GMT-0800 (PST)
+[debug] [2017-11-08T18:29:41.317Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-08T18:29:41.318Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/chat-8469e/tokens  
+ Wed Nov 08 2017 10:29:41 GMT-0800 (PST)
+[debug] [2017-11-08T18:29:41.856Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/austin/Google Drive/College/Junior/Info 343/challenges-ryukiri/challenge6'...
+[info] 
+[debug] [2017-11-08T18:29:41.860Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/chat-8469e  
+ Wed Nov 08 2017 10:29:41 GMT-0800 (PST)
+[debug] [2017-11-08T18:29:42.491Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-08T18:29:42.492Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/56673259576/clients/_:getWebAppConfig  
+ Wed Nov 08 2017 10:29:42 GMT-0800 (PST)
+[debug] [2017-11-08T18:29:42.795Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+

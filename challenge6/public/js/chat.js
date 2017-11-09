@@ -17,7 +17,6 @@ var path = window.location.pathname;
 var page = path.split("/").pop();
 console.log(page);
 
-
 function changeError(message) {
     changeInfoError.textContent = message;
     changeInfoError.classList.add('active');
@@ -142,11 +141,13 @@ auth.onAuthStateChanged(function(user) {
             messageLi.classList.add('message-controls');
             messageLi.classList.add('mdl-list__item');
             messageLi.classList.add('mdl-list__item--two-line');
+            messageLi.id = "messageList";
             messageLi.classList.add('mdl-shadow--4dp');
 
             // Create primary list
             var messagePrime = document.createElement('span');
             messagePrime.classList.add('mdl-list__item-primary-content');
+            messagePrime.id = "controsl";
 
             // Create controls
             var controlsDiv = document.createElement('div');
@@ -165,12 +166,24 @@ auth.onAuthStateChanged(function(user) {
             // Create delete button 
             var messageDeleteButton = document.createElement('button');
             messageDeleteButton.classList.add('deleteMessage');
+            messageDeleteButton.classList.add('mdl-button');
+            messageDeleteButton.id = "show-dialog-delete";
+            messageDeleteButton.type="button";
             messageDeleteButton.textContent = "Delete";
 
-            messageDeleteButton.addEventListener('click', function() {
-                console.log("delete");
+            messageDeleteButton.addEventListener('click', function (e) {
+                var dialog = document.getElementById('delete-dialog');
+                var showDialogButton = document.querySelector('#show-dialog-delete');
+                if (! dialog.showModal) {
+                  dialogPolyfill.registerDialog(dialog);
+                }
+                showDialogButton.addEventListener('click', function() {
+                  dialog.showModal();
+                });
+                dialog.querySelector('.close').addEventListener('click', function() {
+                  dialog.close();
+                });
             })
-
              // Create message text
              var messageParagraph = document.createElement('p');
              messageParagraph.classList.add('message-text');
@@ -271,6 +284,7 @@ messageForm.addEventListener("submit", function (e) {
     })
     .catch(function(error) {
         // message not created succesfully
+        console.log(error);
     });
 });
 

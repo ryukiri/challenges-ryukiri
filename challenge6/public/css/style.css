@@ -95,6 +95,15 @@
     width: 100%;
 }
 
+#messageList {
+    margin: 20px;
+    height: 100px;
+}
+
+#controsl {
+    margin-top: -65px;
+}
+
 @media (max-width: 992px) {
     .left {
         float: clear;

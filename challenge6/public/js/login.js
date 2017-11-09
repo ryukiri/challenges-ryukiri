@@ -105,14 +105,6 @@ signupForm.addEventListener('submit', function(e) {
                 window.location.href = 'chat.html';
             });
 
-            // Set display name and photo url
-
-            // Send verificatino email
-            console.log('send email');
-
-            // Redirect
-            console.log('redirect');
-
         })
         .catch(function (e) {
             // Display error messages

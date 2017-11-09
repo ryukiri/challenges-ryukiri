@@ -91,6 +91,10 @@
     width: 90%;
 }
 
+#pic {
+    width: 100%;
+}
+
 @media (max-width: 992px) {
     .left {
         float: clear;

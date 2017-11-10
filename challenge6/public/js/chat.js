@@ -15,7 +15,6 @@ var changeInfoError = document.getElementById('change-error');
 
 var path = window.location.pathname;
 var page = path.split("/").pop();
-console.log(page);
 
 function changeError(message) {
     changeInfoError.textContent = message;
@@ -44,7 +43,6 @@ profileButton.addEventListener('click', function (e) {
         } else {
             user.updatePassword(changePasswordInput).then(function() {
             // Update successful.
-            console.log(changePasswordInput);
             clearChangeError();
             }).catch(function(error) {
             // An error happened.
@@ -61,7 +59,6 @@ profileButton.addEventListener('click', function (e) {
         } else {
             user.updateEmail(changeEmailInput).then(function() {
                 // Update successful.
-                console.log(changeEmailInput);
             }).catch(function(error) {
                 // An error happened.
                 changeError(error);
@@ -75,18 +72,13 @@ profileButton.addEventListener('click', function (e) {
             // Profile updated successfully!
             var displayName = user.displayName;
             profileName.textContent = auth.currentUser.displayName;
-            console.log(displayName);
         }, function(error) {
             // An error happened.
         });
-        
     })
-
 })
 
  logoutButton.addEventListener('click', function (e) {
-    console.log(e);
-
     auth.signOut();
  });
 
@@ -163,27 +155,112 @@ auth.onAuthStateChanged(function(user) {
             messagesName.classList.add('message-author');
             messagesName.textContent = '\t' + auth.currentUser.displayName;
 
+            // Create edit button
+            var messageEditButton = document.createElement('button');
+            messageEditButton.classList.add('editMessage')
+            messageEditButton.classList.add('mdl-button');
+            messageEditButton.type = "button";
+            messageEditButton.textContent = "Edit";
+
+            messageEditButton.addEventListener('click', function(e){
+                var dialog = document.getElementsByClassName('edit-dialog')[0];
+                var showDialogButton = document.querySelectorAll('.editMessage');
+            
+                if (! dialog.showModal) {
+                    dialogPolyfill.registerDialog(dialog);
+                }
+
+                for(var i = 0; i < showDialogButton.length; i++) {
+                    showDialogButton[i].addEventListener('click', function() {
+                        dialog.showModal();
+    
+                        var confirmButton = document.getElementById('confirm-button-edit');
+                        confirmButton.addEventListener('click', function() {
+                            // Connect to the firebase data
+                            var database = firebase.database();
+                            
+                            // Get the ref for your messages list
+                            var messages = database.ref('messages');
+                            if (page == "music.html") {
+                                messages = database.ref('music');
+                            } else if(page == "random.html") {
+                                messages = database.ref('random');
+                            }
+    
+                            var id = data.key;    
+
+                            /*messages.push({
+                                displayName: user.displayName,
+                                userId: userId,
+                                text: message,
+                                timestamp: new Date().getTime() // unix timestamp in milliseconds
+                            })
+                            .then(function () {
+                                // message created succesfully
+                                messageInput.value = '';
+                            })
+                            .catch(function(error) {
+                                // message not created succesfully
+                            });*/
+                            
+                            console.log("Editing");
+                            
+                            var messageEditForm = documents.getElementById();
+                            
+                        })
+
+                        dialog.querySelector('.close').addEventListener('click', function() {
+                            dialog.close();
+                        });
+                    }); // Show Dialog Event Listener
+                }
+            })
+
             // Create delete button 
             var messageDeleteButton = document.createElement('button');
             messageDeleteButton.classList.add('deleteMessage');
             messageDeleteButton.classList.add('mdl-button');
-            messageDeleteButton.id = "show-dialog-delete";
             messageDeleteButton.type="button";
             messageDeleteButton.textContent = "Delete";
 
             messageDeleteButton.addEventListener('click', function (e) {
-                var dialog = document.getElementById('delete-dialog');
-                var showDialogButton = document.querySelector('#show-dialog-delete');
+                var dialog = document.getElementsByClassName('delete-dialog')[0];
+                //var showDialogButton = document.getElementsByClassName('deleteMessage')[0];
+                var showDialogButton = document.querySelectorAll('.deleteMessage');
+            
                 if (! dialog.showModal) {
-                  dialogPolyfill.registerDialog(dialog);
+                    dialogPolyfill.registerDialog(dialog);
                 }
-                showDialogButton.addEventListener('click', function() {
-                  dialog.showModal();
-                });
-                dialog.querySelector('.close').addEventListener('click', function() {
-                  dialog.close();
-                });
+
+                for(var i = 0; i < showDialogButton.length; i++) {
+                    showDialogButton[i].addEventListener('click', function() {
+                        dialog.showModal();
+    
+                        var confirmButton = document.getElementById('confirm-button');
+                        confirmButton.addEventListener('click', function() {
+                            // Connect to the firebase data
+                            var database = firebase.database();
+                            
+                            // Get the ref for your messages list
+                            var messages = database.ref('messages');
+                            if (page == "music.html") {
+                                messages = database.ref('music');
+                            } else if(page == "random.html") {
+                                messages = database.ref('random');
+                            }
+    
+                            var id = data.key;    
+                            messages.child(id).remove();
+                            
+                        })
+
+                        dialog.querySelector('.close').addEventListener('click', function() {
+                            dialog.close();
+                        });
+                    }); // Show Dialog Event Listener
+                }
             })
+
              // Create message text
              var messageParagraph = document.createElement('p');
              messageParagraph.classList.add('message-text');
@@ -198,7 +275,6 @@ auth.onAuthStateChanged(function(user) {
              var messageIconInside = document.createElement('img');
              messageIconInside.src = photoURL;
              messageIconInside.id = "pic";
-             console.log(photoURL);
 
             // Append controls to message div
             messagePrime.appendChild(controlsDiv);
@@ -211,6 +287,9 @@ auth.onAuthStateChanged(function(user) {
 
             // Append delete button to message control
             controlsDiv.appendChild(messageDeleteButton);
+
+            // Append edit button to message control
+            controlsDiv.appendChild(messageEditButton);
 
             // Append user icon to message prime
             messagePrime.appendChild(messageIcon);
@@ -239,7 +318,7 @@ auth.onAuthStateChanged(function(user) {
         // Use this to remove the HTML of the message that was deleted.
         messages.on('child_removed', function(data) {
             var id = data.key;
-
+            location.reload();
         });
         
     } else {
@@ -255,7 +334,6 @@ messageForm.addEventListener("submit", function (e) {
 
     var user = auth.currentUser;
     var userId = user.uid;
-    console.log(userId);
 
     // Connect to the firebase data
     var database = firebase.database();
@@ -284,7 +362,6 @@ messageForm.addEventListener("submit", function (e) {
     })
     .catch(function(error) {
         // message not created succesfully
-        console.log(error);
     });
 });
 

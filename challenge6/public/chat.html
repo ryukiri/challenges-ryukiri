@@ -65,7 +65,6 @@
                         <button type="button" class="mdl-button close">Cancel</button>
                     </div>
                 </dialog>
-
             </a>
             <a class="mdl-navigation__link" href=""></a>
             <a class="mdl-navigation__link" href="">
@@ -126,6 +125,28 @@
             </div> <!--Page Content-->
         </main>
     </div>
+
+    <dialog name="delete-dialog" id="delete-dialog" class="mdl-dialog delete-dialog">
+        <h4 class="mdl-dialog__title">Are you sure you want to delete?</h4>
+        <div class="mdl-dialog__actions">
+          <button type="button" class="mdl-button" id="confirm-button">Confirm</button>
+          <button type="button" class="mdl-button close">Cancel</button>
+        </div>
+    </dialog>
+
+    <dialog name="edit-dialog" id="edit-dialog" class="mdl-dialog edit-dialog">
+        <h4 class="mdl-dialog__title">Edit your text</h4>
+        <div class="mdl-dialog__content">
+            <div class="mdl-textfield mdl-js-textfield">
+                <textarea class="mdl-textfield__input" type="text" rows= "3" id="sample5" ></textarea>
+                <label class="mdl-textfield__label" for="sample5">Edit message</label>
+            </div>
+        </div>      
+        <div class="mdl-dialog__actions">
+          <button type="button" class="mdl-button" id="confirm-button-edit">Confirm</button>
+          <button type="button" class="mdl-button close">Cancel</button>
+        </div>
+    </dialog>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>

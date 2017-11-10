@@ -184,15 +184,25 @@ auth.onAuthStateChanged(function(user) {
                                  
                             // Get the ref for your messages list
                             var messages = database.ref('messages');
-                            if (page == "music.html") {
+                            //console.log(page);
+                            if (page == "chat.html") {
+                                console.log(page);
+                                var newMessage = database.ref('messages/' + id).update({
+                                    text: messageEditForm.value
+                                });
+                            }
+                            else if (page == "music.html") {
                                 messages = database.ref('music');
+                                var newMessage = database.ref('music/' + id).update({
+                                    text: messageEditForm.value
+                                });
                             } else if(page == "random.html") {
                                 messages = database.ref('random');
+                                var newMessage = database.ref('random/' + id).update({
+                                    text: messageEditForm.value
+                                });
                             }
-                            var newMessage = database.ref('messages/' + id).update({
-                                text: messageEditForm.value
-                            });
-                            messageInput.value='';
+                            
                             dialog.close();
                           
                         })

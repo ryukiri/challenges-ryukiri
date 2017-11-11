@@ -111,6 +111,12 @@ auth.onAuthStateChanged(function(user) {
             messages = database.ref('random').limitToLast(100);
         }
 
+        var userNav = document.getElementById('chips-nav-users');
+        var chip = document.createElement('div');
+        chip.classList.add('chip');
+        chip.textContent = user.displayName;
+        userNav.appendChild(chip);
+
         // This event listener will be called for each item
         // that has been added to the list.
         // Use this to generate each chat message,
@@ -148,7 +154,7 @@ auth.onAuthStateChanged(function(user) {
             // Create time stamp
             var messagesTime = document.createElement('span');
             messagesTime.classList.add('message-time');
-            messagesTime.textContent = timeConverter(timestamp);
+            messagesTime.textContent = new Date(message.timestamp).toLocaleString();
 
             // Create user name
             var messagesName = document.createElement('span');
@@ -188,18 +194,21 @@ auth.onAuthStateChanged(function(user) {
                             if (page == "chat.html") {
                                 console.log(page);
                                 var newMessage = database.ref('messages/' + id).update({
-                                    text: messageEditForm.value
+                                    text: messageEditForm.value,
+                                    timestamp: new Date().getTime()
                                 });
                             }
                             else if (page == "music.html") {
                                 messages = database.ref('music');
                                 var newMessage = database.ref('music/' + id).update({
-                                    text: messageEditForm.value
+                                    text: messageEditForm.value,
+                                    timestamp: new Date().getTime()
                                 });
                             } else if(page == "random.html") {
                                 messages = database.ref('random');
                                 var newMessage = database.ref('random/' + id).update({
-                                    text: messageEditForm.value
+                                    text: messageEditForm.value,
+                                    timestamp: new Date().getTime()
                                 });
                             }
                             
@@ -218,6 +227,7 @@ auth.onAuthStateChanged(function(user) {
             var messageDeleteButton = document.createElement('button');
             messageDeleteButton.classList.add('deleteMessage');
             messageDeleteButton.classList.add('mdl-button');
+            messageDeleteButton.classList.add('mui--pull-right');            
             messageDeleteButton.type="button";
             messageDeleteButton.textContent = "Delete";
 
@@ -311,6 +321,7 @@ auth.onAuthStateChanged(function(user) {
             var message = data.val();
 
             document.getElementById(id).getElementsByClassName('message-text')[0].innerText = message.text;
+            document.getElementById(id).getElementsByClassName('message-time')[0].textContent = new Date(message.timestamp).toLocaleString();
         });
 
         // This event listener will be called whenever an item in the list is deleted.

@@ -182,10 +182,6 @@ auth.onAuthStateChanged(function(user) {
                 modalEl.style.margin = '140px auto';
                 modalEl.style.backgroundColor = '#fff';
                 modalEl.classList.add('mui--z3');
-<<<<<<< HEAD
-=======
-                modalEl.classList.add('flexbox');
->>>>>>> d99654ed7ed41e8c0f6825b16eab1962a3d25805
             
                 // Create modal content
                 var modalContent = document.createElement('div');
@@ -204,19 +200,11 @@ auth.onAuthStateChanged(function(user) {
                 modalTextArea.type = 'text';
                 modalTextArea.rows = '3';
                 modalTextArea.id = 'edit_text'
-<<<<<<< HEAD
 
                 var modalTextLabel = document.createElement('label');
                 modalTextLabel.classList.add('mdl-textfield__label');
                 modalTextLabel.htmlFor = 'edit_text';
                 //modalTextLabel.textContent = 'Edit message';
-=======
-            
-                var modalTextLabel = document.createElement('label');
-                modalTextLabel.classList.add('mdl-textfield__label');
-                modalTextLabel.htmlFor = 'edit_text';
-                modalTextLabel.textContent = 'Edit message';
->>>>>>> d99654ed7ed41e8c0f6825b16eab1962a3d25805
             
                 // Create confirm button
                 var confirmButtonModal = document.createElement('button');
@@ -254,19 +242,11 @@ auth.onAuthStateChanged(function(user) {
                 mui.overlay('on', modalEl);
             
                 confirmButtonModal.addEventListener('click', function(){
-<<<<<<< HEAD
-=======
-                    console.log("Clicked confirm");
->>>>>>> d99654ed7ed41e8c0f6825b16eab1962a3d25805
                     var database = firebase.database();
                     var id = data.key;
                     var messages = database.ref('messages');
                     
                     if (page == "chat.html") {
-<<<<<<< HEAD
-=======
-                        console.log(page);
->>>>>>> d99654ed7ed41e8c0f6825b16eab1962a3d25805
                         var newMessage = database.ref('messages/' + id).update({
                             text: modalTextArea.value,
                             timestamp: new Date().getTime()
@@ -290,22 +270,13 @@ auth.onAuthStateChanged(function(user) {
                 })
             
                 cancelButtonModal.addEventListener('click', function(){
-<<<<<<< HEAD
-=======
-                    console.log("Clicked cancel");
->>>>>>> d99654ed7ed41e8c0f6825b16eab1962a3d25805
                     // remove modal
                     mui.overlay('off', modalEl);
                 })
             }
 
-<<<<<<< HEAD
             // Create delete button
             var messageDeleteButton = document.createElement('button');
-=======
-            // Create delete button 
-            /*var messageDeleteButton = document.createElement('button');
->>>>>>> d99654ed7ed41e8c0f6825b16eab1962a3d25805
             messageDeleteButton.classList.add('deleteMessage');
             messageDeleteButton.classList.add('mdl-button');
             messageDeleteButton.type = 'button';
@@ -335,7 +306,6 @@ auth.onAuthStateChanged(function(user) {
                 modalTextTitle.classList.add('mdl-dialog__title');
                 modalTextTitle.textContent = 'Are you sure you want to delete this?';
             
-<<<<<<< HEAD
                 // Create confirm button
                 var confirmButtonModal = document.createElement('button');
                 confirmButtonModal.classList.add('mdl-button');
@@ -393,51 +363,6 @@ auth.onAuthStateChanged(function(user) {
                     mui.overlay('off', modalEl);
                 })
             }
-=======
-                if (! dialog.showModal) {
-                    dialogPolyfill.registerDialog(dialog);
-                }
-
-                for(var i = 0; i < showDialogButton.length; i++) {
-                    showDialogButton[i].addEventListener('click', function() {
-                        dialog.showModal();
-    
-                        var confirmButton = document.getElementById('confirm-button');
-                        confirmButton.addEventListener('click', function() {
-                            // Connect to the firebase data
-                            var database = firebase.database();
-                            
-                            // Get the ref for your messages list
-                            var messages = database.ref('messages');
-                            if (page == "music.html") {
-                                messages = database.ref('music');
-                            } else if(page == "random.html") {
-                                messages = database.ref('random');
-                            }
-    
-                            var id = data.key;    
-                            messages.child(id).remove();
-                            dialog.close();
-                            
-                        })
-
-                        dialog.querySelector('.close').addEventListener('click', function() {
-                            dialog.close();
-                        });
-                    }); // Show Dialog Event Listener
-                }
-            })*/
-
-            // Create delete button
-            var messageDeleteButton = document.createElement('button');
-            messageDeleteButton.classList.add('deleteMessage');
-            messageDeleteButton.classList.add('mdl-button');
-            messageDeleteButton.type = 'button';
-            messageDeleteButton.textContent = 'Delete'
-            messageDeleteButton.addEventListener('click', function(e) {
-                messageDeleteButton.onclick = activateDeleteModal();
-            })
->>>>>>> d99654ed7ed41e8c0f6825b16eab1962a3d25805
 
             function activateDeleteModal() {
                 

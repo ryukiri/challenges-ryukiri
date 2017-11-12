@@ -16,9 +16,6 @@ var changeInfoError = document.getElementById('change-error');
 var path = window.location.pathname;
 var page = path.split("/").pop();
 
-/* Modals */
-
-
 function changeError(message) {
     changeInfoError.textContent = message;
     changeInfoError.classList.add('active');
@@ -358,14 +355,9 @@ auth.onAuthStateChanged(function(user) {
                 })
             
                 cancelButtonModal.addEventListener('click', function(){
-                    console.log("Clicked cancel");
                     // remove modal
                     mui.overlay('off', modalEl);
                 })
-            }
-
-            function activateDeleteModal() {
-                
             }
 
              // Create message text
@@ -472,6 +464,17 @@ messageForm.addEventListener("submit", function (e) {
     })
     .catch(function(error) {
         // message not created succesfully
+        
+        // initialize modal element
+        var modalEl = document.createElement('div');
+        modalEl.style.width = '400px';
+        modalEl.style.height = '300px';
+        modalEl.style.margin = '100px auto';
+        modalEl.style.backgroundColor = '#fff';
+        modalEl.appendChild(document.createElement('p').textContent = error);
+    
+        // show modal
+        mui.overlay('on', modalEl);
     });
 });
 

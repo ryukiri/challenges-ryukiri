@@ -22,7 +22,7 @@
 <body>
     <!-- Uses a header that scrolls with the text, rather than staying
     locked at the top -->
-    <div class="mdl-layout mdl-js-layout">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header mdl-layout__header--scroll">
         <div class="mdl-layout__header-row">
             <!-- Title -->
@@ -96,28 +96,6 @@
                     </form>
                 </div> <!--Container-->
             </div> <!--Page Content-->
-
-            <dialog name="delete-dialog" id="delete-dialog" class="mdl-dialog delete-dialog">
-                <h4 class="mdl-dialog__title">Are you sure you want to delete?</h4>
-                <div class="mdl-dialog__actions">
-                  <button type="button" class="mdl-button" id="confirm-button">Confirm</button>
-                  <button type="button" class="mdl-button close">Cancel</button>
-                </div>
-            </dialog>
-        
-            <dialog name="edit-dialog" id="edit-dialog" class="mdl-dialog edit-dialog">
-                <h4 class="mdl-dialog__title">Edit your text</h4>
-                <div class="mdl-dialog__content">
-                    <div class="mdl-textfield mdl-js-textfield">
-                        <textarea class="mdl-textfield__input" type="text" rows= "3" id="edit_text" ></textarea>
-                        <label class="mdl-textfield__label" for="edit_text">Edit message</label>
-                    </div>
-                </div>      
-                <div class="mdl-dialog__actions">
-                  <button type="button" class="mdl-button" id="confirm-button-edit">Confirm</button>
-                  <button type="button" class="mdl-button close">Cancel</button>
-                </div>
-            </dialog>
         </main>
     </div>
 

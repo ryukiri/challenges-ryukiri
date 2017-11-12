@@ -23,25 +23,16 @@
     var email = emailLogin.value;
     var password = passwordLogin.value;
 
-    console.log(email);
-    console.log(password);
-
     if (!email || !password) {
         setLoginError('Email and password are required');
     } else {
 
-    //Display Loading Bar
-    //loadingBar.style.display = 'block';
-
     auth.signInWithEmailAndPassword(email, password)
         .then(function (user) {
-            //loadingBar.style.display = "hidden";
-            console.log(user);
-            console.log("Logged in successfully.");
+            
         })
 
         .catch(function (error) {
-            console.log(error.message);
             setLoginError(error.message);
         });
     }
@@ -88,7 +79,6 @@ signupForm.addEventListener('submit', function(e) {
     } else {
         auth.createUserWithEmailAndPassword(email, password)
         .then(function (user) {
-            console.log(user);
 
             user.updateProfile({
                 displayName: displaynameValue
@@ -97,7 +87,6 @@ signupForm.addEventListener('submit', function(e) {
                 return user.sendEmailVerification()
                 .catch(function (verificationEmailError) {
                     // Display error messages
-                    console.log('sending email verifcation error');
                 })
                 
             })
@@ -116,10 +105,8 @@ signupForm.addEventListener('submit', function(e) {
 auth.onAuthStateChanged(function(user) {
     if (user && !isSigningUp) {
         //User is logged in
-        console.log("Logged in.");
         window.location.href = 'chat.html';
     } else {
         //User is not logged in
-        console.log("Logged out.");
     }
 });

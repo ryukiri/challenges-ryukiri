@@ -20,11 +20,9 @@
 
 </head>
 <body>
-    <!-- <button class="mui-btn mui-btn--primary editMessage mdl-button" onclick="activateModal()">Activate modal</button> -->
-
     <!-- Uses a header that scrolls with the text, rather than staying
     locked at the top -->
-    <div class="mdl-layout mdl-js-layout">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header mdl-layout__header--scroll">
         <div class="mdl-layout__header-row">
             <!-- Title -->
@@ -35,7 +33,7 @@
             <nav class="mdl-navigation">
             <a class="mdl-navigation__link" id="chips-nav-users"></a>
             <a class="mdl-navigation__link">
-                
+                <!--Update Profile button-->
                 <button id="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
                     <i class="material-icons md-36">face</i>
                 </button>
@@ -96,57 +94,9 @@
                         </button>
                     </form>
                 </div> <!--Container-->
-                
-               <!--
-                <ul class="messageList">
-                    <li class="message-controls mdl-list__item mdl-list__item--two-line mdl-shadow--4dp">
-                        <span class="mdl-list__item-primary-content">
-                            <div class="message-controls">
-                                <span class="message-author">Display Name</span>
-                                <span class="message-time">Time</span>
-                            </div>
-                            <!--<i class="material-icons mdl-list__item-avatar">person</i>-->
-                            <!--
-                            <i class="mdl-list__item-avatar">
-                                <img src = "https://www.gravatar.com/avatar/bb12c54a7fcb765dd418dd235bba57b5" id="pic"/>
-                            </i>
-                            <p class="message-text">Hello World!</p>
-                        </span>
-                    </li>
-                    <li class="mdl-list__item mdl-list__item--two-line mdl-shadow--4dp">
-                        <span class="mdl-list__item-primary-content">
-                            <span class="mdl-list__item-sub-title">62 Episodes</span>
-                            <i class="material-icons mdl-list__item-avatar">person</i>
-                            <p class="message-text">Test Message</p>
-                        </span>
-                    </li>
-                </ul>
-                -->
             </div> <!--Page Content-->
         </main>
     </div>
-
-    <dialog name="delete-dialog" id="delete-dialog" class="mdl-dialog delete-dialog">
-        <h4 class="mdl-dialog__title">Are you sure you want to delete?</h4>
-        <div class="mdl-dialog__actions">
-          <button type="button" class="mdl-button" id="confirm-button">Confirm</button>
-          <button type="button" class="mdl-button close">Cancel</button>
-        </div>
-    </dialog>
-
-    <dialog name="edit-dialog" id="edit-dialog" class="mdl-dialog edit-dialog">
-        <h4 class="mdl-dialog__title">Edit your text</h4>
-        <div class="mdl-dialog__content">
-            <div class="mdl-textfield mdl-js-textfield">
-                <textarea class="mdl-textfield__input" type="text" rows= "3" id="edit_text" ></textarea>
-                <label class="mdl-textfield__label" for="edit_text">Edit message</label>
-            </div>
-        </div>      
-        <div class="mdl-dialog__actions">
-          <button type="button" class="mdl-button" id="confirm-button-edit">Confirm</button>
-          <button type="button" class="mdl-button close">Cancel</button>
-        </div>
-    </dialog>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>

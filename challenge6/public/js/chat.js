@@ -167,107 +167,199 @@ auth.onAuthStateChanged(function(user) {
             messageEditButton.classList.add('mdl-button');
             messageEditButton.type = "button";
             messageEditButton.textContent = "Edit";
-
-            messageEditButton.addEventListener('click', function(e){
-                var dialog = document.getElementsByClassName('edit-dialog')[0];
-                var showDialogButton = document.querySelectorAll('.editMessage');
-                var messageEditForm = document.getElementById('edit_text');
-                
-                if (! dialog.showModal) {
-                    dialogPolyfill.registerDialog(dialog);
-                }
-
-                for(var i = 0; i < showDialogButton.length; i++) {
-                    showDialogButton[i].addEventListener('click', function() {
-                        dialog.showModal();
-    
-                        var confirmButton = document.getElementById('confirm-button-edit');
-                        
-                        confirmButton.addEventListener('click', function() {
-                            // Connect to the firebase data
-                            var database = firebase.database();
-                            var id = data.key;    
-                                 
-                            // Get the ref for your messages list
-                            var messages = database.ref('messages');
-                            //console.log(page);
-                            if (page == "chat.html") {
-                                console.log(page);
-                                var newMessage = database.ref('messages/' + id).update({
-                                    text: messageEditForm.value,
-                                    timestamp: new Date().getTime()
-                                });
-                            }
-                            else if (page == "music.html") {
-                                messages = database.ref('music');
-                                var newMessage = database.ref('music/' + id).update({
-                                    text: messageEditForm.value,
-                                    timestamp: new Date().getTime()
-                                });
-                            } else if(page == "random.html") {
-                                messages = database.ref('random');
-                                var newMessage = database.ref('random/' + id).update({
-                                    text: messageEditForm.value,
-                                    timestamp: new Date().getTime()
-                                });
-                            }
-                            
-                            dialog.close();
-                          
-                        })
-
-                        dialog.querySelector('.close').addEventListener('click', function() {
-                            dialog.close();
-                        });
-                    }); // Show Dialog Event Listener
-                }
+            messageEditButton.addEventListener('click', function(e) {
+                messageEditButton.onclick = activateEditModal();
             })
 
-            // Create delete button 
+            function activateEditModal() {
+                // initialize modal element
+                var modalEl = document.createElement('div');
+                modalEl.style.width = '300px';
+                modalEl.style.height = '300px';
+                modalEl.style.margin = '140px auto';
+                modalEl.style.backgroundColor = '#fff';
+                modalEl.classList.add('mui--z3');
+            
+                // Create modal content
+                var modalContent = document.createElement('div');
+                modalContent.classList.add('mdl-dialog__content');
+                
+                var modalTextfield = document.createElement('div');
+                modalTextfield.classList.add('mdl-textfield');
+                modalTextfield.classList.add('mdl-js-textfield');
+                
+                var modalTextTitle = document.createElement('h4');
+                modalTextTitle.classList.add('mdl-dialog__title');
+                modalTextTitle.textContent = 'Edit your text';
+            
+                var modalTextArea = document.createElement('textarea');
+                modalTextArea.classList.add('mdl-textfield__input');
+                modalTextArea.type = 'text';
+                modalTextArea.rows = '3';
+                modalTextArea.id = 'edit_text'
+
+                var modalTextLabel = document.createElement('label');
+                modalTextLabel.classList.add('mdl-textfield__label');
+                modalTextLabel.htmlFor = 'edit_text';
+                //modalTextLabel.textContent = 'Edit message';
+            
+                // Create confirm button
+                var confirmButtonModal = document.createElement('button');
+                confirmButtonModal.classList.add('mdl-button');
+                confirmButtonModal.id = 'confirm-button-edit';
+                confirmButtonModal.textContent = 'Confirm';
+            
+                // Create cancel button
+                var cancelButtonModal = document.createElement('button');
+                cancelButtonModal.classList.add('mdl-button');
+                confirmButtonModal.id = 'cancel-button-edit';
+                cancelButtonModal.textContent = 'Cancel';
+            
+                // Create actions
+                var divActions = document.createElement('div');
+                divActions.classList.add('mdl-dialog__actions');
+                
+                // Append title to modal
+                modalEl.appendChild(modalTextTitle);
+            
+                // Append content to modal
+                modalEl.appendChild(modalContent);
+                modalContent.appendChild(modalTextfield);
+                modalTextfield.appendChild(modalTextArea);
+                modalTextfield.appendChild(modalTextLabel);
+            
+                // Append actions to dialog
+                modalEl.appendChild(divActions);
+            
+                // Append buttons to actions
+                divActions.appendChild(confirmButtonModal);
+                divActions.appendChild(cancelButtonModal);
+            
+                // show modal
+                mui.overlay('on', modalEl);
+            
+                confirmButtonModal.addEventListener('click', function(){
+                    var database = firebase.database();
+                    var id = data.key;
+                    var messages = database.ref('messages');
+                    
+                    if (page == "chat.html") {
+                        var newMessage = database.ref('messages/' + id).update({
+                            text: modalTextArea.value,
+                            timestamp: new Date().getTime()
+                        });
+                    }
+                    else if (page == "music.html") {
+                        messages = database.ref('music');
+                        var newMessage = database.ref('music/' + id).update({
+                            text: modalTextArea.value,
+                            timestamp: new Date().getTime()
+                        });
+                    } else if(page == "random.html") {
+                        messages = database.ref('random');
+                        var newMessage = database.ref('random/' + id).update({
+                            text: modalTextArea.value,
+                            timestamp: new Date().getTime()
+                        });
+                    }
+            
+                    mui.overlay('off', modalEl);
+                })
+            
+                cancelButtonModal.addEventListener('click', function(){
+                    // remove modal
+                    mui.overlay('off', modalEl);
+                })
+            }
+
+            // Create delete button
             var messageDeleteButton = document.createElement('button');
             messageDeleteButton.classList.add('deleteMessage');
             messageDeleteButton.classList.add('mdl-button');
-            messageDeleteButton.classList.add('mui--pull-right');            
-            messageDeleteButton.type="button";
-            messageDeleteButton.textContent = "Delete";
-
-            messageDeleteButton.addEventListener('click', function (e) {
-                var dialog = document.getElementsByClassName('delete-dialog')[0];
-                var showDialogButton = document.querySelectorAll('.deleteMessage');
-            
-                if (! dialog.showModal) {
-                    dialogPolyfill.registerDialog(dialog);
-                }
-
-                for(var i = 0; i < showDialogButton.length; i++) {
-                    showDialogButton[i].addEventListener('click', function() {
-                        dialog.showModal();
-    
-                        var confirmButton = document.getElementById('confirm-button');
-                        confirmButton.addEventListener('click', function() {
-                            // Connect to the firebase data
-                            var database = firebase.database();
-                            
-                            // Get the ref for your messages list
-                            var messages = database.ref('messages');
-                            if (page == "music.html") {
-                                messages = database.ref('music');
-                            } else if(page == "random.html") {
-                                messages = database.ref('random');
-                            }
-    
-                            var id = data.key;    
-                            messages.child(id).remove();
-                            dialog.close();
-                            
-                        })
-
-                        dialog.querySelector('.close').addEventListener('click', function() {
-                            dialog.close();
-                        });
-                    }); // Show Dialog Event Listener
-                }
+            messageDeleteButton.type = 'button';
+            messageDeleteButton.textContent = 'Delete'
+            messageDeleteButton.addEventListener('click', function(e) {
+                messageDeleteButton.onclick = activateDeleteModal();
             })
+
+            function activateDeleteModal() {
+                // initialize modal element
+                var modalEl = document.createElement('div');
+                modalEl.style.width = '300px';
+                modalEl.style.height = '300px';
+                modalEl.style.margin = '140px auto';
+                modalEl.style.backgroundColor = '#fff';
+                modalEl.classList.add('mui--z3');
+
+                // Create modal content
+                var modalContent = document.createElement('div');
+                modalContent.classList.add('mdl-dialog__content');
+                
+                var modalTextfield = document.createElement('div');
+                modalTextfield.classList.add('mdl-textfield');
+                modalTextfield.classList.add('mdl-js-textfield');
+                
+                var modalTextTitle = document.createElement('h4');
+                modalTextTitle.classList.add('mdl-dialog__title');
+                modalTextTitle.textContent = 'Are you sure you want to delete this?';
+            
+                // Create confirm button
+                var confirmButtonModal = document.createElement('button');
+                confirmButtonModal.classList.add('mdl-button');
+                confirmButtonModal.id = 'confirm-button-delete';
+                confirmButtonModal.textContent = 'Confirm';
+            
+                // Create cancel button
+                var cancelButtonModal = document.createElement('button');
+                cancelButtonModal.classList.add('mdl-button');
+                confirmButtonModal.id = 'cancel-button-delete';
+                cancelButtonModal.textContent = 'Cancel';
+            
+                // Create actions
+                var divActions = document.createElement('div');
+                divActions.classList.add('mdl-dialog__actions');
+                
+                // Append title to modal
+                modalEl.appendChild(modalTextTitle);
+            
+                // Append content to modal
+                modalEl.appendChild(modalContent);
+                modalContent.appendChild(modalTextfield);
+                
+                // Append actions to dialog
+                modalEl.appendChild(divActions);
+            
+                // Append buttons to actions
+                divActions.appendChild(confirmButtonModal);
+                divActions.appendChild(cancelButtonModal);
+            
+                // show modal
+                mui.overlay('on', modalEl);
+
+                confirmButtonModal.addEventListener('click', function(){
+                    // Connect to the firebase data
+                    var database = firebase.database();
+                    
+                    // Get the ref for your messages list
+                    var messages = database.ref('messages');
+                    if (page == "music.html") {
+                        messages = database.ref('music');
+                    } else if(page == "random.html") {
+                        messages = database.ref('random');
+                    }
+
+                    var id = data.key;    
+                    messages.child(id).remove();
+            
+                    mui.overlay('off', modalEl);
+                })
+            
+                cancelButtonModal.addEventListener('click', function(){
+                    console.log("Clicked cancel");
+                    // remove modal
+                    mui.overlay('off', modalEl);
+                })
+            }
 
              // Create message text
              var messageParagraph = document.createElement('p');
@@ -320,8 +412,9 @@ auth.onAuthStateChanged(function(user) {
             var id = data.key;
             var message = data.val();
 
+            // Updates text
             document.getElementById(id).getElementsByClassName('message-text')[0].innerText = message.text;
-            document.getElementById(id).getElementsByClassName('message-time')[0].textContent = new Date(message.timestamp).toLocaleString();
+
         });
 
         // This event listener will be called whenever an item in the list is deleted.

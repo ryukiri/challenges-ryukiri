@@ -117,4 +117,9 @@
         float: clear;
         width: 100%;
     }
+
+    #messageList {
+        margin: 10px;
+        height: 250px;
+    }
 }

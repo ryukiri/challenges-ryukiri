@@ -78,6 +78,22 @@ In order to use NASA's APIs, <a href="https://api.nasa.gov/index.html#apply-for-
 3. While the page is downloading the new data, the date picker should be disabled until API request has completed.
 4. If there is an error downloading the new data, an error message should be displayed.
 
+
+Image `load` event example
+```js
+var image = document.getElementById('image');
+image.addEventListener('load', function (e) {
+    // Image has finished loading after being changed
+    // (only need to add this event listener once).
+});
+
+makeApiRequest(url, function (response)  {
+    // After AJAX request has completed,
+    // change the image url.
+    image.src = response.hdurl;
+});
+```
+
 ### C. Styling
 
 1. Overall styling of the page is up to you, but the page should be formatted and styled with more than just the default browser styling.
@@ -90,6 +106,7 @@ In order to use NASA's APIs, <a href="https://api.nasa.gov/index.html#apply-for-
 ### E. Extra Credit
 
 1. **Styling** (10 points): Make your page look out of this world.
+2. **Videos** (5 ponits): Properly handle videos posts, in addition to image posts.
 
 ### Validate your code
 

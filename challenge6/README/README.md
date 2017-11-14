@@ -56,8 +56,8 @@ Next, you will use the Firebase Tools CLI to setup your code with your project. 
 1. First, cd to the `challenge6` directory inside your Challenges repo.
 2. Next, perform `firebase login`. If you are not already logged in, your browser will open to log in with a Google account. Important: You must log in with the same account you used to create your project in the Firebase Web Console.
 3. Next, perform `firebase init`.
-4. The first prompt asks **What Firebase CLI features do you want to setup for this folder?**. Press enter to select the default settings.
-5. The second prompt asks **What Firebase project do you want to associate as default?** Use the arrows keys to select the project you created earlier for the challenge, and hit Enter.
+4. The first prompt asks **What Firebase CLI features do you want to setup for this folder?**. Select **Database** and **Hosting**.
+5. The second prompt asks **Select a default Firebase project for this directory?** Use the arrows keys to select the project you created earlier for the challenge, and hit Enter.
 6. The third prompt asks **What file should be used for Database Rules?** Press enter to select the default setting.
 7. The fourth prompt asks **What do you want to use as your public directory?** Press enter to select the default setting.
 8. The fifth prompt asks **Configure as a single-page app (rewrite all urls to /index.html)?** Press enter to select the default setting.

@@ -1,0 +1,23 @@
+hjtml {
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1 {
+   text-align: center; 
+}
+
+.date {
+    font-weight: bold;
+    text-align: center;
+}
+
+#bar {
+    display: block;
+    margin: 0 auto;
+    visibility: hidden;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}

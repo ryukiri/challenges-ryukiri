@@ -10,25 +10,48 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet" />
 
+    <!--Bootstrap-->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous" type="text/css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
     <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+    <img src="img/logo.png" alt="UW Logo" class="logo"/>
     <div class="slides">
         <!-- Slides go here -->
-    </div>
+        <div class="slide slide-0 active">
+            <h1>UW vs. California</h1>
+        </div>
+
+        <div class="slide slide-1">
+            <h1>UW vs. Colorado</h1>
+        </div>
+
+        <div class="slide slide-2">
+            <h1>UW vs. Fresno</h1>
+        </div>
+
+        <div class="slide slide-3">
+            <h1>UW vs. OSU</h1>
+        </div>
+    </div> 
+
 
     <!-- Left and right arrows -->
-    <i class="arrow fa fa-chevron-left" aria-hidden="true"></i>
-    <i class="arrow fa fa-chevron-right" aria-hidden="true"></i>
+    <i class="arrow fa fa-chevron-left" aria-hidden="true" id="left"></i>
+    <i class="arrow fa fa-chevron-right right" aria-hidden="true" id="right"></i>
 
     <!-- Dots -->
     <div class="dots">
-        <i class="dot fa fa-circle" aria-hidden="true"></i>
-        <i class="dot fa fa-circle" aria-hidden="true"></i>
-        <i class="dot fa fa-circle" aria-hidden="true"></i>
-        <i class="dot fa fa-circle" aria-hidden="true"></i>
+        <i class="dot dot-1 fa fa-circle active" aria-hidden="true" id="dot1"></i>
+        <i class="dot dot-2 fa fa-circle" aria-hidden="true" id="dot2"></i>
+        <i class="dot dot-3 fa fa-circle" aria-hidden="true" id="dot3"></i>
+        <i class="dot dot-4 fa fa-circle" aria-hidden="true" id="dot4"></i>
     </div>
 
     <script src="js/app.js" type="text/javascript"></script>

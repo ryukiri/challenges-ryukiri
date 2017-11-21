@@ -7,6 +7,8 @@ This repo will contain of the code for the individual challenges for the quarter
 3. [challenge3](./challenge3/README/)
 4. [challenge4](./challenge4/README/)
 4. [challenge5](./challenge5/README/)
+4. [challenge6](./challenge6/README/)
+4. [challenge7](./challenge7/README/)
 
 **Important**: By accepting the Github Classroom invite, this repo was created as a copy (not a true fork) of the original `challenges` repo. This is so that you will have access to view your challenges repo and the original `challenges` repo, and only you and the teaching will have access to view your `challenges` repo. You *DO NOT* need to fork this repo.
 

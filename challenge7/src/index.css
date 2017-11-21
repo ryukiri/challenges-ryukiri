@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#nameHead {
+  padding-bottom: 5%;
+}
+
+#temp {
+  font-size: 2em;
+  padding-right: 5%;
+}
+
+#weatherDesc {
+  color: gray;
+  font-style: italic;
+}
+
+#removeLink {
+  font-size: .5em;
+  font-style: italic;
+  color: lightgray;
+  padding: 2%;
+}
+
+.alert-danger {
+  display: none;
+}
+
+.alert-danger.active {
+  display: block;
+}

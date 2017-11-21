@@ -9,7 +9,6 @@ import WeatherCurrent from './WeatherCurrent';
 var OPEN_WEATHER_KEY = '3afb89ff3b34566750f8fdc7e145193c';
 
 var STORAGE_KEY = 'todoList';
-
 function UrlExists(url) {
     var http = new XMLHttpRequest();
     http.open('HEAD', url, false);
@@ -33,6 +32,7 @@ function timeConverter(UNIX_timestamp){
     var time = hour + ':' + min + ':' + sec ;
     return time;
 }
+
 
 class App extends Component {
     constructor(props) {
@@ -68,7 +68,7 @@ class App extends Component {
                                 <div className="App">
                                     <Form
                                         onFormSubmit={(item) => {
-                                            this.handleFormSubmit(item);                                         
+                                            this.handleFormSubmit(item);  
                                         }}          
                                     />
 

@@ -6,6 +6,7 @@ class WeatherCurrent extends Component {
         return (
             <div>
                 <h3 id="nameHead"><span id="name">{this.props.name}</span></h3>
+                <img id="icon" className="alert-danger" src={this.props.icon} alt="Weather Icon"/>
                 <span id="temp" className="alert-danger">{this.props.weatherTemp}&#176;</span>
                 <span id="weather" className="alert-danger">{this.props.weatherName}&#176;</span>
                 <span id="weatherDesc" className="alert-danger"> {this.props.weatherDesc}&#176;</span>

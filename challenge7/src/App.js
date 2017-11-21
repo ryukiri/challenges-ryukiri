@@ -12,16 +12,11 @@ var STORAGE_KEY = 'todoList';
 function UrlExists(url) {
     var http = new XMLHttpRequest();
     http.open('HEAD', url, false);
-    /*try{
-        http.send()
-    } catch(err) {
-        console.log("false");
-        return false;
-    }
-    return true;*/
-
-    http.send()
-    console.log(http.send)
+    http.send();
+    if (http.status == 404)
+        return false
+    else
+        return true;
 }
 
 function timeConverter(UNIX_timestamp){
@@ -73,6 +68,7 @@ class App extends Component {
                                     />
 
                                     {<WeatherCurrent
+                                        icon={this.state.icon}
                                         name={this.state.name}
                                         weather={this.state.weather}
                                         weatherName={this.state.weatherName}
@@ -125,32 +121,15 @@ class App extends Component {
     }
 
     handleFormSubmit(itemToAdd) {
-        /*if (UrlExists(itemToAdd)) {
-            var existingList = this.state.list;
-            var newList = existingList.concat([ itemToAdd ]);
-    
-            this.setState({
-                list: newList
-            });
-    
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
-        }*/
+        var existingList = this.state.list;
+        var newList = existingList.concat([ itemToAdd ]);
 
-        UrlExists(itemToAdd, function(status){
-            if(status === 200){
-                var existingList = this.state.list;
-                var newList = existingList.concat([ itemToAdd ]);
-        
-                this.setState({
-                    list: newList
-                });
-        
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
-            }
-            else if(status === 404){
-               // 404 not found
-            }
+        this.setState({
+            list: newList
         });
+
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
+        
         
         var temp = document.getElementById('temp');
         temp.classList.remove('alert-danger');
@@ -184,6 +163,10 @@ class App extends Component {
         humidity.classList.remove('alert-danger');
         humidity.classList.add('active');
 
+        var icon = document.getElementById('icon');
+        icon.classList.remove('alert-danger');
+        icon.classList.add('active');
+
         this.fetchWeather(itemToAdd);
     }
 
@@ -201,6 +184,7 @@ class App extends Component {
                 return response.json();
             })
             .then((json) => {
+                console.log(json);
                 var name = json.name;
                 var temperature = json.main.temp;
 
@@ -225,7 +209,7 @@ class App extends Component {
                     minTemp: minTemp,
                     maxTemp: maxTemp,    
                     humidity: humidity,       
-                    icon: icon,
+                    icon: "http://openweathermap.org/img/w/"+icon+".png"
                 });
 
                 var weatherError = document.getElementById('weather-error');

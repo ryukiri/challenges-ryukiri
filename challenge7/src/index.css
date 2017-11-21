@@ -3,3 +3,25 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+#nameHead {
+  padding-bottom: 5%;
+}
+
+#temp {
+  font-size: 3em;
+  padding-right: 5%;
+}
+
+#weatherDesc {
+  color: gray;
+  font-style: italic;
+}
+
+.alert-danger {
+  display: none;
+}
+
+.alert-danger.active {
+  display: block;
+}

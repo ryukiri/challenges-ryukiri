@@ -9,12 +9,12 @@ class List extends Component {
         return (
             <div>
                 {arrayIsNotEmpty ? (
-                    <div>
-                        <h4>My Locations</h4>
+                    <div className="collection with-header">
+                        <div className="collection-header"><h4>My Locations</h4></div>
                         <ul>
                             {this.props.list.map((item, index) => {
                                 return (
-                                    <li key={index} className="mdl-list__item">
+                                    <li key={index} className="mdl-list__item collection-item">
                                         <span className="mdl-list__item-primary-content">
                                             <a 
                                                 href="#"
@@ -25,8 +25,8 @@ class List extends Component {
                                             >
                                                 {item}
                                             </a>
-                                            -
-                                            <a
+                                            
+                                            <a id="removeLink"
                                                 href=""
                                                 onClick={(e) => {
                                                     e.preventDefault();

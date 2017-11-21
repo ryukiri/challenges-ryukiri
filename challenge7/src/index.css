@@ -9,13 +9,20 @@ body {
 }
 
 #temp {
-  font-size: 3em;
+  font-size: 2em;
   padding-right: 5%;
 }
 
 #weatherDesc {
   color: gray;
   font-style: italic;
+}
+
+#removeLink {
+  font-size: .5em;
+  font-style: italic;
+  color: lightgray;
+  padding: 2%;
 }
 
 .alert-danger {

@@ -13,22 +13,25 @@ var STORAGE_KEY = 'todoList';
 function UrlExists(url) {
     var http = new XMLHttpRequest();
     http.open('HEAD', url, false);
-    http.send();
-    if (http.status == 404)
-        return false
-    else
-        return true;
+    /*try{
+        http.send()
+    } catch(err) {
+        console.log("false");
+        return false;
+    }
+    return true;*/
+
+    http.send()
+    console.log(http.send)
 }
 
-function saveCity(itemToAdd) {
-    var existingList = this.state.list;
-    var newList = existingList.concat([ itemToAdd ]);
-
-    this.setState({
-        list: newList
-    });
-
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
+function timeConverter(UNIX_timestamp){
+    var a = new Date(UNIX_timestamp*1000);
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var sec = a.getSeconds();
+    var time = hour + ':' + min + ':' + sec ;
+    return time;
 }
 
 class App extends Component {
@@ -77,6 +80,9 @@ class App extends Component {
                                         weatherDesc={this.state.weatherDesc}
                                         maxTemp={this.state.maxTemp}
                                         minTemp={this.state.minTemp}
+                                        sunrise={this.state.sunrise}
+                                        sunset={this.state.sunset}
+                                        humidity={this.state.humidity}
                                     />}
                                 <div id="weather-error" className="alert alert-danger" role="alert"></div> 
                                 </div>
@@ -119,14 +125,44 @@ class App extends Component {
     }
 
     handleFormSubmit(itemToAdd) {
-        var existingList = this.state.list;
-        var newList = existingList.concat([ itemToAdd ]);
+        /*if (UrlExists(itemToAdd)) {
+            var existingList = this.state.list;
+            var newList = existingList.concat([ itemToAdd ]);
+    
+            this.setState({
+                list: newList
+            });
+    
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
+        }*/
 
-        this.setState({
-            list: newList
+        UrlExists(itemToAdd, function(status){
+            if(status === 200){
+                var existingList = this.state.list;
+                var newList = existingList.concat([ itemToAdd ]);
+        
+                this.setState({
+                    list: newList
+                });
+        
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
+            }
+            else if(status === 404){
+               // 404 not found
+            }
         });
+        
+        var temp = document.getElementById('temp');
+        temp.classList.remove('alert-danger');
+        temp.classList.add('active');
 
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
+        var weatherDesc = document.getElementById('weatherDesc');
+        weatherDesc.classList.remove('alert-danger');
+        weatherDesc.classList.add('active');
+
+        var weather = document.getElementById('weather');
+        weather.classList.remove('alert-danger');
+        weather.classList.add('active');
 
         var maxTemp = document.getElementById('maxTemp');
         maxTemp.classList.remove('alert-danger');
@@ -136,6 +172,18 @@ class App extends Component {
         minTemp.classList.remove('alert-danger');
         minTemp.classList.add('active');
 
+        var sunrise = document.getElementById('sunrise');
+        sunrise.classList.remove('alert-danger');
+        sunrise.classList.add('active');
+
+        var sunset = document.getElementById('sunset');
+        sunset.classList.remove('alert-danger');
+        sunset.classList.add('active');
+
+        var humidity = document.getElementById('humidity');
+        humidity.classList.remove('alert-danger');
+        humidity.classList.add('active');
+
         this.fetchWeather(itemToAdd);
     }
 
@@ -144,7 +192,7 @@ class App extends Component {
         var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + query + '&units=imperial&appid=' + OPEN_WEATHER_KEY;
         var zip = 'https://api.openweathermap.org/data/2.5/weather?zip=' + query + '&units=imperial&appid=' + OPEN_WEATHER_KEY;
 
-        if (UrlExists(zip)) {
+        if (!UrlExists(url)) {
             url = zip;
         }
 
@@ -153,8 +201,6 @@ class App extends Component {
                 return response.json();
             })
             .then((json) => {
-                console.log(json);
-
                 var name = json.name;
                 var temperature = json.main.temp;
 
@@ -164,16 +210,22 @@ class App extends Component {
                 var icon = weather.icon;
                 var minTemp = json.main.temp_min;
                 var maxTemp = json.main.temp_max;
+                var sunrise = json.sys.sunrise;
+                var sunset = json.sys.sunset;
+                var humidity = json.main.humidity;
 
                 this.setState({
                     name: name,
                     weather: weather,
                     weatherName: weatherName,
                     weatherDesc: weatherDesc,
-                    weatherTemp: temperature, 
+                    weatherTemp: temperature,
+                    sunrise: timeConverter(sunrise),
+                    sunset: timeConverter(sunset),
                     minTemp: minTemp,
-                    maxTemp: maxTemp,           
-                    icon: icon
+                    maxTemp: maxTemp,    
+                    humidity: humidity,       
+                    icon: icon,
                 });
 
                 var weatherError = document.getElementById('weather-error');
